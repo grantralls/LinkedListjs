@@ -1,15 +1,16 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const TypedocWebpackPlugin = require('typedoc-webpack-plugin');
 
 module.exports = {
   entry: './src/main.ts',
   mode: 'development',
   plugins: [
     new CleanWebpackPlugin(),
-    new ESLintPlugin({
-        extensions: ['ts']
-    })
+    new ESLintPlugin(),
+    new TypedocWebpackPlugin({
+    }, './src')
   ],
   module: {
     rules: [
