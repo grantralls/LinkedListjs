@@ -10,6 +10,6 @@ class Node {
   print(): void {
     console.log(this.data);
   }
-};
+}
 
 export default Node;

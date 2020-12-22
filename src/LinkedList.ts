@@ -17,13 +17,13 @@ class LinkedList {
       this.size = 1;
 
       return;
-    };
+    }
 
     this.head = null;
     this.tail = null;
     this.size = 0;
 
-  };
+  }
 
   appendData(entry: number): void {
     const newNode = new Node(entry);
@@ -34,14 +34,14 @@ class LinkedList {
       this.tail.next = null;
       this.size++;
       return;
-    };
+    }
 
     this.head = newNode;
     this.tail = newNode;
     this.tail.next = null;
     this.size++;
 
-  };
-};
+  }
+}
 
 export default LinkedList;

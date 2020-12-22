@@ -1,27 +1,18 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   entry: './src/main.ts',
   mode: 'development',
   plugins: [
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new ESLintPlugin({
+        extensions: ['ts']
+    })
   ],
   module: {
     rules: [
-      {
-        test: /\.(ts|tsx)$/,
-        enforce: 'pre',
-        exclude: '/node_modules',
-        use: [
-          {
-            options: {
-              eslintPath: require.resolve('eslint'),
-            },
-            loader: require.resolve('eslint-loader')
-          }
-        ]
-      },
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
