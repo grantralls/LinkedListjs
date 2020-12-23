@@ -1,47 +1,44 @@
 import Node from './Node';
 
 class LinkedList {
+	head: Node | undefined;
+	tail: Node | undefined;
+	size: number;
 
-  head: Node;
-  tail: Node;
-  size: number;
+	constructor(entry: number) {
+		if (entry != undefined) {
+			const initialNode = new Node(entry);
 
-  constructor(entry: number = null) {
+			this.head = initialNode;
+			this.tail = initialNode;
+			this.tail.next = null;
+			this.size = 1;
 
-    if(entry != null) {
-      const initialNode = new Node(entry);
+			return;
+        }
+        
+		this.size = 0;
+	}
 
-      this.head = initialNode;
-      this.tail = initialNode;
-      this.tail.next = null;
-      this.size = 1;
+	/**
+	 * @param entry  Integer to add to the end of the linked list
+	 */
+	appendData(entry: number): void {
+		const newNode = new Node(entry);
 
-      return;
-    }
+		if (this.size > 0 && this.tail != null) {
+			this.tail.next = newNode;
+			this.tail = newNode;
+			this.tail.next = null;
+			this.size++;
+			return;
+		}
 
-    this.head = null;
-    this.tail = null;
-    this.size = 0;
-
-  }
-
-  appendData(entry: number): void {
-    const newNode = new Node(entry);
-
-    if(this.size > 0) {
-      this.tail.next = newNode;
-      this.tail = newNode;
-      this.tail.next = null;
-      this.size++;
-      return;
-    }
-
-    this.head = newNode;
-    this.tail = newNode;
-    this.tail.next = null;
-    this.size++;
-
-  }
+		this.head = newNode;
+		this.tail = newNode;
+		this.tail.next = null;
+		this.size++;
+	}
 }
 
 export default LinkedList;

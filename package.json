@@ -1,14 +1,14 @@
 {
   "name": "linkedlist",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Linked List made with Javascript for practice",
   "main": "main.js",
   "scripts": {
     "run": "node ./dist/main.js",
-    "build": "webpack"
+    "build": "tsc"
   },
   "keywords": [],
-  "author": "",
+  "author": "Grant Ralls <dev@grantralls.net> (https://grantralls.net)",
   "license": "ISC",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.11.0",
@@ -23,5 +23,7 @@
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
   },
-  "dependencies": {}
+  "dependencies": {
+    "uninstall": "0.0.0"
+  }
 }
