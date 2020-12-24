@@ -6,7 +6,7 @@
   "scripts": {
     "run": "node ./dist/main.js",
     "build": "tsc",
-    "test": "mocha 'test/*'"
+    "test": "mocha --require ts-node/register --extensions ts,tsx src 'test/**/*.{ts,tsx}'"
   },
   "keywords": [],
   "author": "Grant Ralls <dev@grantralls.net> (https://grantralls.net)",
@@ -19,6 +19,7 @@
     "@typescript-eslint/parser": "^4.0.0",
     "eslint": "^7.16.0",
     "mocha": "^8.2.1",
+    "ts-node": "^9.1.1",
     "typedoc": "^0.19.2",
     "typescript": "^4.0.5"
   },

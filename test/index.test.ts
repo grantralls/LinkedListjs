@@ -1,6 +1,7 @@
 import assert from 'assert';
+import LinkedList from "../src/index";
 
-describe('Array', () => {
+describe('Linked List', () => {
     it('should return -1 when the value is not present', () => {
         assert.equal([1, 2, 3].indexOf(4), -1);
     });
