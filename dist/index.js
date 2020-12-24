@@ -64,7 +64,7 @@ var LinkedList = /** @class */ (function () {
         }
     };
     /**
-     * @param entry data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html)
+     * @param entry data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
      */
     LinkedList.prototype.append = function (entry) {
         if (this.tail == undefined) {
@@ -80,6 +80,9 @@ var LinkedList = /** @class */ (function () {
         var newNode = new Node_1.default(entry);
         this.head = this.tail = newNode;
     };
+    /**
+     * @returns Returns a Javascript [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator).
+     */
     LinkedList.prototype.traverse = function () {
         var currNode;
         return __generator(this, function (_a) {
@@ -98,6 +101,10 @@ var LinkedList = /** @class */ (function () {
             }
         });
     };
+    /**
+     * This search is done over O(n) time since the list is not ordered.
+     * @param value value to search for
+     */
     LinkedList.prototype.contains = function (value) {
         if (this.size == 0) {
             return false;
@@ -111,12 +118,18 @@ var LinkedList = /** @class */ (function () {
         }
         return false;
     };
+    /**
+     * @returns Returns the data value of the head node.
+     */
     LinkedList.prototype.getHeadValue = function () {
         if (this.head != undefined) {
             return this.head.data;
         }
         return undefined;
     };
+    /**
+     * @returns Returns the data value of the tail node.
+     */
     LinkedList.prototype.getTailValue = function () {
         if (this.tail != undefined) {
             return this.tail.data;
