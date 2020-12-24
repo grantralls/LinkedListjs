@@ -26,8 +26,8 @@ describe('Linked List', () => {
             if(deepList == ordered) {
                 assert.fail('The deep copy is equal to the original, it should not be.');
             }
-        })
-    })
+        });
+    });
     
     it('should append to end of list', () => {
         const mutatedOrdered = new LinkedList<number>();
