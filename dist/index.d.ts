@@ -9,5 +9,7 @@ declare class LinkedList<T> {
     private addFirstNode;
     traverse(): IterableIterator<T>;
     contains(value: T): boolean;
+    getHeadValue(): T | undefined;
+    getTailValue(): T | undefined;
 }
 export default LinkedList;
