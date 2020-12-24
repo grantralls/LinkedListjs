@@ -7,7 +7,7 @@ dummyList.append(2);
 dummyList.append(3);
 dummyList.append(4);
 
-const iterator = dummyList.iterator();
+const iterator = dummyList.traverse();
 
 for(const value of iterator) {
     console.log(value);
