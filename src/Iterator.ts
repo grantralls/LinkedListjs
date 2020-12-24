@@ -1,8 +1,8 @@
 import Node from './Node';
 
 class Iterator {
-	currNode: Node | null;
-	nextNode: Node | null;
+	currNode: Node | undefined;
+	nextNode: Node | undefined;
 
 	constructor(entryPoint: Node | null) {
 		this.currNode = entryPoint;

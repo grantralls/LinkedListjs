@@ -1,44 +1,29 @@
 import Node from './Node';
 
-class LinkedList {
-	head: Node | undefined;
-	tail: Node | undefined;
-	size: number;
-
-	constructor(entry: number) {
-		if (entry != undefined) {
-			const initialNode = new Node(entry);
-
-			this.head = initialNode;
-			this.tail = initialNode;
-			this.tail.next = null;
-			this.size = 1;
-
-			return;
+class LinkedList<T> {
+	private head: Node<T> | undefined;
+	private tail: Node<T> | undefined;
+	private size = 0;
+    
+    /**
+     * 
+     * @param entry data to append. This can be variable thanks to (typescript generics)[https://www.typescriptlang.org/docs/handbook/generics.html]
+     */
+    append(entry: T): void {
+        if(this.tail == undefined) {
+            this.addFirstNode(entry);
+        } else {
+            this.tail.next = new Node<T>(entry);
+            this.tail = this.tail.next;
         }
-        
-		this.size = 0;
-	}
 
-	/**
-	 * @param entry  Integer to add to the end of the linked list
-	 */
-	appendData(entry: number): void {
-		const newNode = new Node(entry);
+        this.size++;
+    }
 
-		if (this.size > 0 && this.tail != null) {
-			this.tail.next = newNode;
-			this.tail = newNode;
-			this.tail.next = null;
-			this.size++;
-			return;
-		}
-
-		this.head = newNode;
-		this.tail = newNode;
-		this.tail.next = null;
-		this.size++;
-	}
+    private addFirstNode(entry: T) {
+        const newNode: Node<T> = new Node<T>(entry);
+        this.head = this.tail = newNode;
+    }
 }
 
 export default LinkedList;

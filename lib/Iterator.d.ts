@@ -1,8 +1,8 @@
 import Node from './Node';
 declare class Iterator {
-    currNode: Node;
-    nextNode: Node;
-    constructor(entryPoint: Node);
+    currNode: Node | null;
+    nextNode: Node | null;
+    constructor(entryPoint: Node | null);
     next(): void;
     print(): void;
 }
