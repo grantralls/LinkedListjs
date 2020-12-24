@@ -18,12 +18,6 @@ backwards.append(1);
 
 
 describe('Linked List', () => {
-    it('should append to end of list', () => {
-        const mutatedOrdered: LinkedList<number> = ordered;
-        mutatedOrdered.append(4);
-        assert.strictEqual(mutatedOrdered.getTailValue(), 4);
-    });
-
     describe('copy()', () => {
         it('Does a deep copy of the list passed as the param', () => {
             const deepList = new LinkedList<number>();
@@ -34,6 +28,39 @@ describe('Linked List', () => {
             }
         })
     })
+    
+    it('should append to end of list', () => {
+        const mutatedOrdered = new LinkedList<number>();
+        mutatedOrdered.copy(ordered);
+        mutatedOrdered.append(4);
+        assert.strictEqual(mutatedOrdered.getTailValue(), 4);
+    });
+
+    describe('getHeadValue()', () => {
+        it('should return the data of the node at the head', () => {
+            assert.strictEqual(ordered.getHeadValue(), 1);
+            assert.strictEqual(backwards.getHeadValue(), 3);
+            assert.strictEqual(random.getHeadValue(), 3);
+        });
+        it('should return undefined if the list is empty', () => {
+            const emptyList = new LinkedList<number>();
+
+            assert.strictEqual(emptyList.getHeadValue(), undefined);
+        });
+    });
+
+    describe('getTailValue()', () => {
+        it('should return the data of the node at the tail', () => {
+            assert.strictEqual(ordered.getTailValue(), 3);
+            assert.strictEqual(backwards.getTailValue(), 1);
+            assert.strictEqual(random.getTailValue(), 2);
+        });
+        it('should return undefined if the list is empty', () => {
+            const emptyList = new LinkedList<number>();
+
+            assert.strictEqual(emptyList.getTailValue(), undefined);
+        });
+    });
 
     describe('contains()', () => {
         it('should return true if the value is in the list', () => {
@@ -57,32 +84,6 @@ describe('Linked List', () => {
                 assert.strictEqual(value, expectedValue);
                 expectedValue++;
             }
-        });
-    });
-
-    describe('getHeadValue()', () => {
-        it('should return the data of the node at the head', () => {
-            assert.strictEqual(ordered.getHeadValue(), 1);
-            assert.strictEqual(backwards.getHeadValue(), 3);
-            assert.strictEqual(random.getHeadValue(), 3);
-        });
-        it('should return undefined if the list is empty', () => {
-            const emptyList = new LinkedList<number>();
-
-            assert.strictEqual(emptyList.getHeadValue(), undefined);
-        });
-    });
-
-    describe('getTailValue()', () => {
-        it('should return the data of the node at the tail', () => {
-            assert.strictEqual(ordered.getTailValue(), 4);
-            assert.strictEqual(backwards.getTailValue(), 1);
-            assert.strictEqual(random.getTailValue(), 2);
-        });
-        it('should return undefined if the list is empty', () => {
-            const emptyList = new LinkedList<number>();
-
-            assert.strictEqual(emptyList.getTailValue(), undefined);
         });
     });
 });
