@@ -1,7 +1,7 @@
 {
   "name": "linkedlist",
   "version": "1.0.0",
-  "description": "A Linked List made with Javascript for practice",
+  "description": "A Linked List made with Typescript for practice",
   "main": "index.js",
   "scripts": {
     "run": "node ./dist/main.js",
