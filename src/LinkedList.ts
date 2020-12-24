@@ -33,6 +33,16 @@ class LinkedList<T> {
             currNode = currNode.next;
         }
     }
+
+    contains(value: T): boolean {
+        if(this.size == 0) {
+            return false;
+        }
+
+        
+
+        return false;
+    }
 }
 
 export default LinkedList;
