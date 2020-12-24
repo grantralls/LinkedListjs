@@ -20,8 +20,7 @@ backwards.append(1);
 describe('Linked List', () => {
     describe('copy()', () => {
 
-        const deepList = new LinkedList<number>();
-        deepList.copy(ordered);
+        const deepList = ordered.copy();
 
         it('should create a deep copy of the original list that no longer is equal to the original list', () => {
             if(deepList == ordered) {
@@ -61,8 +60,7 @@ describe('Linked List', () => {
     });
     
     it('should append to end of list', () => {
-        const mutatedOrdered = new LinkedList<number>();
-        mutatedOrdered.copy(ordered);
+        const mutatedOrdered = ordered.copy();
         mutatedOrdered.append(4);
         assert.strictEqual(mutatedOrdered.getTailValue(), 4);
     });

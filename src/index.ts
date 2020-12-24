@@ -1,20 +1,32 @@
-import Node from './Node';
+import Node from './node';
 
 class LinkedList<T> {
 	private head: Node<T> | undefined;
 	private tail: Node<T> | undefined;
 	private size = 0;
 
-    copy(oldList: LinkedList<T>): void {
-        const oldIterator = oldList.traverse();
+    /**
+     * Usage:
+     * ```typescript
+     *  const oldList = new LinkedList<number>();
+     *  const newDeepCopiedList = oldList.copy();
+     * ```
+     * 
+     * @returns A new linked list that does not reference the original.
+     */
+    copy(): LinkedList<T> {
+        const oldIterator = this.traverse();
+        const newList = new LinkedList<T>();
 
         for(const value of oldIterator) {
-            this.append(value);
+            newList.append(value);
         }
+
+        return newList;
     }
 
 	/**
-	 * @param entry data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
+	 * @param entry Data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
 	 */
 	append(entry: T): void {
 		if (this.tail == undefined) {
@@ -46,7 +58,7 @@ class LinkedList<T> {
 
     /**
      * This search is done over O(n) time since the list is not ordered.
-     * @param value value to search for
+     * @param value Value to search for.
      */
 	contains(value: T): boolean {
 		if (this.size == 0) {
