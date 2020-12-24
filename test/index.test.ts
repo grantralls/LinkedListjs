@@ -13,8 +13,8 @@ random.append(2);
 
 const backwards = new LinkedList<number>();
 backwards.append(3);
-backwards.append(1);
 backwards.append(2);
+backwards.append(1);
 
 
 describe('Linked List', () => {
@@ -59,6 +59,19 @@ describe('Linked List', () => {
             const emptyList = new LinkedList<number>();
 
             assert.strictEqual(emptyList.getHeadValue(), undefined);
+        });
+    });
+
+    describe('getTailValue()', () => {
+        it('should return the data of the node at the tail', () => {
+            assert.strictEqual(ordered.getTailValue(), 4);
+            assert.strictEqual(backwards.getTailValue(), 1);
+            assert.strictEqual(random.getTailValue(), 2);
+        });
+        it('should return undefined if the list is empty', () => {
+            const emptyList = new LinkedList<number>();
+
+            assert.strictEqual(emptyList.getTailValue(), undefined);
         });
     });
 });
