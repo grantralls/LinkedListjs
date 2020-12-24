@@ -8,6 +8,6 @@ declare class LinkedList<T> {
      */
     append(entry: T): void;
     private addFirstNode;
-    iterator(): IterableIterator<number>;
+    iterator(): IterableIterator<T>;
 }
 export default LinkedList;

@@ -51,12 +51,20 @@ var LinkedList = /** @class */ (function () {
         this.head = this.tail = newNode;
     };
     LinkedList.prototype.iterator = function () {
+        var currNode;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, 1];
+                case 0:
+                    currNode = this.head;
+                    _a.label = 1;
                 case 1:
+                    if (!(currNode != undefined)) return [3 /*break*/, 3];
+                    return [4 /*yield*/, currNode.data];
+                case 2:
                     _a.sent();
-                    return [2 /*return*/];
+                    currNode = currNode.next;
+                    return [3 /*break*/, 1];
+                case 3: return [2 /*return*/];
             }
         });
     };

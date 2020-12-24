@@ -1,6 +1,6 @@
 class Node<T> {
-	data: T | null;
-	next: Node<T> | null = null;
+	data: T;
+	next: Node<T> | undefined;
 
 	constructor(entry: T) {
 		this.data = entry;

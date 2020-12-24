@@ -25,8 +25,13 @@ class LinkedList<T> {
         this.head = this.tail = newNode;
     }
 
-    *iterator(): IterableIterator<number> {
-        yield 1;
+    *traverse(): IterableIterator<T> {
+        let currNode = this.head;
+
+        while(currNode != undefined) {
+            yield currNode.data;
+            currNode = currNode.next;
+        }
     }
 }
 

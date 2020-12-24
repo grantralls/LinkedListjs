@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var Node = /** @class */ (function () {
     function Node(entry) {
-        this.next = null;
         this.data = entry;
     }
     Node.prototype.print = function () {

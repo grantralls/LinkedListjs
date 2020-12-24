@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./lib",
+    "outDir": "./dist",
     "noImplicitAny": true,
     "module": "commonjs",
     "target": "ES5",
@@ -8,6 +8,7 @@
     "declaration": true,
     "strict": true,
     "lib": ["esnext", "dom"],
+    "downlevelIteration": true
   },
   "include": ["src"],
 }
