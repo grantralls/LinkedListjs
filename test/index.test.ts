@@ -25,6 +25,17 @@ describe('Linked List', () => {
         assert.strictEqual(mutatedOrdered.getTailValue(), 4);
     });
 
+    describe('copy()', () => {
+        it('Does a deep copy of the list passed as the param', () => {
+            const deepList = new LinkedList<number>();
+            deepList.copy(ordered);
+
+            if(deepList == ordered) {
+                assert.fail('The deep copy is equal to the original, it should not be.');
+            }
+        })
+    })
+
     describe('contains()', () => {
         it('should return true if the value is in the list', () => {
             assert.strictEqual(random.contains(2), true);
