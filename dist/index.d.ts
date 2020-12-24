@@ -12,5 +12,6 @@ declare class LinkedList<T> {
     contains(value: T): boolean;
     getHeadValue(): T | undefined;
     getTailValue(): T | undefined;
+    getSize(): number;
 }
 export default LinkedList;

@@ -6,8 +6,6 @@ class LinkedList<T> {
 	private size = 0;
 
     copy(oldList: LinkedList<T>): void {
-        this.size = oldList.size;
-
         const oldIterator = oldList.traverse();
 
         for(const value of oldIterator) {
@@ -72,6 +70,10 @@ class LinkedList<T> {
             return this.tail.data;
         }
         return undefined;
+    }
+
+    getSize(): number {
+        return this.size;
     }
 }
 

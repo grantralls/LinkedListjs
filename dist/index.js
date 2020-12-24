@@ -48,7 +48,6 @@ var LinkedList = /** @class */ (function () {
     }
     LinkedList.prototype.copy = function (oldList) {
         var e_1, _a;
-        this.size = oldList.size;
         var oldIterator = oldList.traverse();
         try {
             for (var oldIterator_1 = __values(oldIterator), oldIterator_1_1 = oldIterator_1.next(); !oldIterator_1_1.done; oldIterator_1_1 = oldIterator_1.next()) {
@@ -123,6 +122,9 @@ var LinkedList = /** @class */ (function () {
             return this.tail.data;
         }
         return undefined;
+    };
+    LinkedList.prototype.getSize = function () {
+        return this.size;
     };
     return LinkedList;
 }());
