@@ -1,5 +1,6 @@
 import assert from 'assert';
 import LinkedList from '../src/index';
+import { IGNORED } from 'typedoc/dist/lib/utils/options/sources/typescript';
 
 const ordered = new LinkedList<number>();
 ordered.append(1);
@@ -47,5 +48,13 @@ describe('Linked List', () => {
                 expectedValue++;
             }
         });
+    });
+
+    describe('getHeadValue()', () => {
+        it('should return the data of the node at the head', () => {
+            assert.strictEqual(ordered.getHeadValue(), 1);
+            assert.strictEqual(backwards.getHeadValue(), 3);
+            assert.strictEqual(random.getHeadValue(), 3);
+        })
     });
 });

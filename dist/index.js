@@ -36,7 +36,7 @@ var LinkedList = /** @class */ (function () {
         this.size = 0;
     }
     /**
-     * @param entry data to append. This can be variable thanks to (typescript generics)[https://www.typescriptlang.org/docs/handbook/generics.html]
+     * @param entry data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html)
      */
     LinkedList.prototype.append = function (entry) {
         if (this.tail == undefined) {
