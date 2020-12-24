@@ -2,9 +2,18 @@ declare class LinkedList<T> {
     private head;
     private tail;
     private size;
-    copy(oldList: LinkedList<T>): void;
     /**
-     * @param entry data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
+     * Usage:
+     * ```typescript
+     *  const oldList = new LinkedList<number>();
+     *  const newDeepCopiedList = oldList.copy();
+     * ```
+     *
+     * @returns A new linked list that does not reference the original.
+     */
+    copy(): LinkedList<T>;
+    /**
+     * @param entry Data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
      */
     append(entry: T): void;
     private addFirstNode;
@@ -14,7 +23,7 @@ declare class LinkedList<T> {
     traverse(): IterableIterator<T>;
     /**
      * This search is done over O(n) time since the list is not ordered.
-     * @param value value to search for
+     * @param value Value to search for.
      */
     contains(value: T): boolean;
     /**

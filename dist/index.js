@@ -41,18 +41,28 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var Node_1 = __importDefault(require("./Node"));
+var node_1 = __importDefault(require("./node"));
 var LinkedList = /** @class */ (function () {
     function LinkedList() {
         this.size = 0;
     }
-    LinkedList.prototype.copy = function (oldList) {
+    /**
+     * Usage:
+     * ```typescript
+     *  const oldList = new LinkedList<number>();
+     *  const newDeepCopiedList = oldList.copy();
+     * ```
+     *
+     * @returns A new linked list that does not reference the original.
+     */
+    LinkedList.prototype.copy = function () {
         var e_1, _a;
-        var oldIterator = oldList.traverse();
+        var oldIterator = this.traverse();
+        var newList = new LinkedList();
         try {
             for (var oldIterator_1 = __values(oldIterator), oldIterator_1_1 = oldIterator_1.next(); !oldIterator_1_1.done; oldIterator_1_1 = oldIterator_1.next()) {
                 var value = oldIterator_1_1.value;
-                this.append(value);
+                newList.append(value);
             }
         }
         catch (e_1_1) { e_1 = { error: e_1_1 }; }
@@ -62,22 +72,23 @@ var LinkedList = /** @class */ (function () {
             }
             finally { if (e_1) throw e_1.error; }
         }
+        return newList;
     };
     /**
-     * @param entry data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
+     * @param entry Data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
      */
     LinkedList.prototype.append = function (entry) {
         if (this.tail == undefined) {
             this.addFirstNode(entry);
         }
         else {
-            this.tail.next = new Node_1.default(entry);
+            this.tail.next = new node_1.default(entry);
             this.tail = this.tail.next;
         }
         this.size++;
     };
     LinkedList.prototype.addFirstNode = function (entry) {
-        var newNode = new Node_1.default(entry);
+        var newNode = new node_1.default(entry);
         this.head = this.tail = newNode;
     };
     /**
@@ -103,7 +114,7 @@ var LinkedList = /** @class */ (function () {
     };
     /**
      * This search is done over O(n) time since the list is not ordered.
-     * @param value value to search for
+     * @param value Value to search for.
      */
     LinkedList.prototype.contains = function (value) {
         if (this.size == 0) {
