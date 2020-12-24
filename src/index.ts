@@ -6,7 +6,7 @@ class LinkedList<T> {
 	private size = 0;
 
 	/**
-	 * @param entry data to append. This can be variable thanks to (typescript generics)[https://www.typescriptlang.org/docs/handbook/generics.html]
+	 * @param entry data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html)
 	 */
 	append(entry: T): void {
 		if (this.tail == undefined) {
@@ -48,7 +48,21 @@ class LinkedList<T> {
         }
 
         return false;
-	}
+    }
+    
+    getHeadValue(): T | undefined {
+        if(this.head != undefined) {
+            return this.head.data;
+        }
+        return undefined;
+    }
+
+    getTailValue(): T | undefined {
+        if(this.tail != undefined) {
+            return this.tail.data;
+        }
+        return undefined;
+    }
 }
 
 export default LinkedList;

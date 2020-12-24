@@ -26,14 +26,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var Node_1 = require("./Node");
+var Node_1 = __importDefault(require("./Node"));
 var LinkedList = /** @class */ (function () {
     function LinkedList() {
         this.size = 0;
     }
     /**
-     * @param entry data to append. This can be variable thanks to (typescript generics)[https://www.typescriptlang.org/docs/handbook/generics.html]
+     * @param entry data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html)
      */
     LinkedList.prototype.append = function (entry) {
         if (this.tail == undefined) {
@@ -79,6 +82,18 @@ var LinkedList = /** @class */ (function () {
             return currNode.data === value;
         }
         return false;
+    };
+    LinkedList.prototype.getHeadValue = function () {
+        if (this.head != undefined) {
+            return this.head.data;
+        }
+        return undefined;
+    };
+    LinkedList.prototype.getTailValue = function () {
+        if (this.tail != undefined) {
+            return this.tail.data;
+        }
+        return undefined;
     };
     return LinkedList;
 }());

@@ -8,7 +8,8 @@
     "declaration": true,
     "strict": true,
     "lib": ["esnext", "dom"],
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "esModuleInterop": true
   },
-  "include": ["src"],
+  "include": ["src/*.ts"],
 }
