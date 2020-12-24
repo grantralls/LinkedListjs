@@ -19,13 +19,44 @@ backwards.append(1);
 
 describe('Linked List', () => {
     describe('copy()', () => {
-        it('Does a deep copy of the list passed as the param', () => {
-            const deepList = new LinkedList<number>();
-            deepList.copy(ordered);
 
+        const deepList = new LinkedList<number>();
+        deepList.copy(ordered);
+
+        it('should create a deep copy of the original list that no longer is equal to the original list', () => {
             if(deepList == ordered) {
-                assert.fail('The deep copy is equal to the original, it should not be.');
+                assert.fail('The deep copy is referencing the original, it should not be.');
             }
+        });
+
+        it('should create a deep copy that has the exact same data as the original', () => {
+            const originalListData: Array<number> = [];
+            const deepCopyListData: Array<number> = [];
+
+            const orderedIterator = ordered.traverse();
+            const deepIterator = deepList.traverse();
+
+            if(deepList.getSize() > ordered.getSize()) {
+                console.log(`${deepList.getSize()} -> ${ordered.getSize()}`);
+                assert.fail('The dataset of the deep copy has more members than the original');
+            } else if(deepList.getSize() < ordered.getSize()) {
+                assert.fail('The dataset of the deep copy has less members than the original');
+            }
+
+            for(const value of orderedIterator) {
+                originalListData.push(value);
+            }
+
+            for(const value of deepIterator) {
+                deepCopyListData.push(value);
+            }
+
+            for(let i = 0; i < originalListData.length; i++) {
+                if(originalListData[i] != deepCopyListData[i]) {
+                    assert.fail('The data within the deep-copied list is not equal to that of the original list');
+                }
+            }
+            
         });
     });
     
