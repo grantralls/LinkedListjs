@@ -14,7 +14,7 @@ class LinkedList<T> {
     }
 
 	/**
-	 * @param entry data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html)
+	 * @param entry data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
 	 */
 	append(entry: T): void {
 		if (this.tail == undefined) {
@@ -32,6 +32,9 @@ class LinkedList<T> {
 		this.head = this.tail = newNode;
 	}
 
+    /**
+     * @returns Returns a Javascript [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator).
+     */
 	*traverse(): IterableIterator<T> {
 		let currNode = this.head;
 
@@ -41,6 +44,10 @@ class LinkedList<T> {
 		}
 	}
 
+    /**
+     * This search is done over O(n) time since the list is not ordered.
+     * @param value value to search for
+     */
 	contains(value: T): boolean {
 		if (this.size == 0) {
 			return false;
@@ -58,6 +65,9 @@ class LinkedList<T> {
         return false;
     }
     
+    /**
+     * @returns Returns the data value of the head node.
+     */
     getHeadValue(): T | undefined {
         if(this.head != undefined) {
             return this.head.data;
@@ -65,6 +75,9 @@ class LinkedList<T> {
         return undefined;
     }
 
+    /**
+     * @returns Returns the data value of the tail node.
+     */
     getTailValue(): T | undefined {
         if(this.tail != undefined) {
             return this.tail.data;
