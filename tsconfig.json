@@ -6,7 +6,8 @@
     "target": "ES5",
     "allowJs": true,
     "declaration": true,
-    "strict": true
+    "strict": true,
+    "lib": ["esnext", "dom"],
   },
   "include": ["src"],
 }

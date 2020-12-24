@@ -1,12 +1,13 @@
-import Node from './Node';
-declare class LinkedList {
-    head: Node | undefined;
-    tail: Node | undefined;
-    size: number;
-    constructor(entry: number);
+declare class LinkedList<T> {
+    private head;
+    private tail;
+    private size;
     /**
-     * @param entry  Integer to add to the end of the linked list
+     *
+     * @param entry data to append. This can be variable thanks to (typescript generics)[https://www.typescriptlang.org/docs/handbook/generics.html]
      */
-    appendData(entry: number): void;
+    append(entry: T): void;
+    private addFirstNode;
+    iterator(): IterableIterator<number>;
 }
 export default LinkedList;

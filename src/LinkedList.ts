@@ -24,6 +24,10 @@ class LinkedList<T> {
         const newNode: Node<T> = new Node<T>(entry);
         this.head = this.tail = newNode;
     }
+
+    *iterator(): IterableIterator<number> {
+        yield 1;
+    }
 }
 
 export default LinkedList;
