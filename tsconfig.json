@@ -2,7 +2,6 @@
   "compilerOptions": {
     "outDir": "./dist",
     "noImplicitAny": true,
-    "module": "commonjs",
     "target": "ES5",
     "allowJs": true,
     "declaration": true,
@@ -10,5 +9,5 @@
     "lib": ["esnext", "dom"],
     "downlevelIteration": true
   },
-  "include": ["src"],
+  "include": ["src/*.ts"],
 }
