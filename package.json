@@ -6,7 +6,8 @@
   "scripts": {
     "run": "node ./dist/main.js",
     "build": "tsc",
-    "test": "mocha --require ts-node/register --extensions ts,tsx src 'test/**/*.{ts,tsx}'"
+    "test": "mocha --require ts-node/register --extensions ts,tsx src 'test/**/*.{ts,tsx}'",
+    "doc": "typedoc --out dist/docs src/"
   },
   "keywords": [],
   "author": "Grant Ralls <dev@grantralls.net> (https://grantralls.net)",
