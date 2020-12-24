@@ -5,6 +5,16 @@ class LinkedList<T> {
 	private tail: Node<T> | undefined;
 	private size = 0;
 
+    copy(oldList: LinkedList<T>): void {
+        this.size = oldList.size;
+
+        const oldIterator = oldList.traverse();
+
+        for(const value of oldIterator) {
+            this.append(value);
+        }
+    }
+
 	/**
 	 * @param entry data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html)
 	 */

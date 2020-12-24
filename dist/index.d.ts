@@ -2,6 +2,7 @@ declare class LinkedList<T> {
     private head;
     private tail;
     private size;
+    copy(oldList: LinkedList<T>): void;
     /**
      * @param entry data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html)
      */
