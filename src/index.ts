@@ -48,7 +48,21 @@ class LinkedList<T> {
         }
 
         return false;
-	}
+    }
+    
+    getHeadValue(): T | undefined {
+        if(this.head != undefined) {
+            return this.head.data;
+        }
+        return undefined;
+    }
+
+    getTailValue(): T | undefined {
+        if(this.tail != undefined) {
+            return this.tail.data;
+        }
+        return undefined;
+    }
 }
 
 export default LinkedList;

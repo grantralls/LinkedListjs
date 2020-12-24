@@ -1,8 +1,13 @@
 import assert from 'assert';
-import LinkedList from "../src/index";
+import LinkedList from '../src/index';
 
 describe('Linked List', () => {
-    it('should return -1 when the value is not present', () => {
-        assert.equal([1, 2, 3].indexOf(4), -1);
+    it('should append to end of list', () => {
+        const dummyList: LinkedList<number> = new LinkedList<number>();
+
+        dummyList.append(1);
+        dummyList.append(2);
+
+        assert.strictEqual(dummyList.getTailValue(), 2);
     });
 });
