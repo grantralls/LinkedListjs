@@ -12,13 +12,9 @@ var __values = (this && this.__values) || function(o) {
 };
 var e_1, _a;
 Object.defineProperty(exports, "__esModule", { value: true });
-var LinkedList_1 = require("./LinkedList");
-var dummyList = new LinkedList_1.default();
-dummyList.append(1);
-dummyList.append(2);
-dummyList.append(3);
-dummyList.append(4);
-var iterator = dummyList.iterator();
+var _1 = require(".");
+var dummyList = new _1.default();
+var iterator = dummyList.traverse();
 try {
     for (var iterator_1 = __values(iterator), iterator_1_1 = iterator_1.next(); !iterator_1_1.done; iterator_1_1 = iterator_1.next()) {
         var value = iterator_1_1.value;
@@ -32,3 +28,4 @@ finally {
     }
     finally { if (e_1) throw e_1.error; }
 }
+console.log(dummyList.contains(7));

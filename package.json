@@ -2,7 +2,7 @@
   "name": "linkedlist",
   "version": "1.0.1",
   "description": "A Linked List made with Javascript for practice",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "run": "node ./dist/main.js",
     "build": "tsc"
@@ -14,6 +14,7 @@
     "@typescript-eslint/eslint-plugin": "^4.11.0",
     "@typescript-eslint/parser": "^4.0.0",
     "eslint": "^7.16.0",
+    "mocha": "^8.2.1",
     "typedoc": "^0.19.2",
     "typescript": "^4.0.5"
   },
