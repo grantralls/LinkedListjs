@@ -1,6 +1,5 @@
 import assert from 'assert';
 import LinkedList from '../src/index';
-import { IGNORED } from 'typedoc/dist/lib/utils/options/sources/typescript';
 
 const ordered = new LinkedList<number>();
 ordered.append(1);
@@ -55,6 +54,11 @@ describe('Linked List', () => {
             assert.strictEqual(ordered.getHeadValue(), 1);
             assert.strictEqual(backwards.getHeadValue(), 3);
             assert.strictEqual(random.getHeadValue(), 3);
-        })
+        });
+        it('should return undefined if the list is empty', () => {
+            const emptyList = new LinkedList<number>();
+
+            assert.strictEqual(emptyList.getHeadValue(), undefined);
+        });
     });
 });
