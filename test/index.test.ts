@@ -19,7 +19,6 @@ backwards.append(1);
 
 describe('Linked List', () => {
     it('should append to end of list', () => {
-        // TODO implement copy constructor
         const mutatedOrdered: LinkedList<number> = ordered;
         mutatedOrdered.append(4);
         assert.strictEqual(mutatedOrdered.getTailValue(), 4);
