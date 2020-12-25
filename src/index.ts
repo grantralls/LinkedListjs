@@ -1,12 +1,32 @@
-import Node from './Node';
+import Node from './node';
 
-class LinkedList<T> {
+export class LinkedList<T> {
 	private head: Node<T> | undefined;
 	private tail: Node<T> | undefined;
-	private size = 0;
+    private size = 0;
+
+    /**
+     * Usage:
+     * ```typescript
+     *  const oldList = new LinkedList<number>();
+     *  const newDeepCopiedList = oldList.copy();
+     * ```
+     * 
+     * @returns A new linked list that does not reference the original.
+     */
+    copy(): LinkedList<T> {
+        const oldIterator = this.traverse();
+        const newList = new LinkedList<T>();
+
+        for(const value of oldIterator) {
+            newList.append(value);
+        }
+
+        return newList;
+    }
 
 	/**
-	 * @param entry data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html)
+	 * @param entry Data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
 	 */
 	append(entry: T): void {
 		if (this.tail == undefined) {
@@ -24,6 +44,9 @@ class LinkedList<T> {
 		this.head = this.tail = newNode;
 	}
 
+    /**
+     * @returns Returns a Javascript [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator).
+     */
 	*traverse(): IterableIterator<T> {
 		let currNode = this.head;
 
@@ -33,6 +56,10 @@ class LinkedList<T> {
 		}
 	}
 
+    /**
+     * This search is done over O(n) time since the list is not ordered.
+     * @param value Value to search for.
+     */
 	contains(value: T): boolean {
 		if (this.size == 0) {
 			return false;
@@ -50,6 +77,9 @@ class LinkedList<T> {
         return false;
     }
     
+    /**
+     * @returns Returns the data value of the head node.
+     */
     getHeadValue(): T | undefined {
         if(this.head != undefined) {
             return this.head.data;
@@ -57,12 +87,17 @@ class LinkedList<T> {
         return undefined;
     }
 
+    /**
+     * @returns Returns the data value of the tail node.
+     */
     getTailValue(): T | undefined {
         if(this.tail != undefined) {
             return this.tail.data;
         }
         return undefined;
     }
-}
 
-export default LinkedList;
+    getSize(): number {
+        return this.size;
+    }
+}
