@@ -18,11 +18,77 @@ backwards.append(1);
 
 
 describe('Linked List', () => {
+    describe('copy()', () => {
+
+        const deepList = ordered.copy();
+
+        it('should create a deep copy of the original list that no longer is equal to the original list', () => {
+            if(deepList == ordered) {
+                assert.fail('The deep copy is referencing the original, it should not be.');
+            }
+        });
+
+        it('should create a deep copy that has the exact same data as the original', () => {
+            const originalListData: Array<number> = [];
+            const deepCopyListData: Array<number> = [];
+
+            const orderedIterator = ordered.traverse();
+            const deepIterator = deepList.traverse();
+
+            if(deepList.getSize() > ordered.getSize()) {
+                console.log(`${deepList.getSize()} -> ${ordered.getSize()}`);
+                assert.fail('The dataset of the deep copy has more members than the original');
+            } else if(deepList.getSize() < ordered.getSize()) {
+                assert.fail('The dataset of the deep copy has less members than the original');
+            }
+
+            for(const value of orderedIterator) {
+                originalListData.push(value);
+            }
+
+            for(const value of deepIterator) {
+                deepCopyListData.push(value);
+            }
+
+            for(let i = 0; i < originalListData.length; i++) {
+                if(originalListData[i] != deepCopyListData[i]) {
+                    assert.fail('The data within the deep-copied list is not equal to that of the original list');
+                }
+            }
+            
+        });
+    });
+    
     it('should append to end of list', () => {
-        // TODO implement copy constructor
-        const mutatedOrdered: LinkedList<number> = ordered;
+        const mutatedOrdered = ordered.copy();
         mutatedOrdered.append(4);
         assert.strictEqual(mutatedOrdered.getTailValue(), 4);
+    });
+
+    describe('getHeadValue()', () => {
+        it('should return the data of the node at the head', () => {
+            assert.strictEqual(ordered.getHeadValue(), 1);
+            assert.strictEqual(backwards.getHeadValue(), 3);
+            assert.strictEqual(random.getHeadValue(), 3);
+        });
+        it('should return undefined if the list is empty', () => {
+            const emptyList = new LinkedList<number>();
+
+            assert.strictEqual(emptyList.getHeadValue(), undefined);
+        });
+    });
+
+    describe('getTailValue()', () => {
+        it('should return the data of the node at the tail', () => {
+            assert.strictEqual(ordered.getTailValue(), 3);
+            assert.strictEqual(backwards.getTailValue(), 1);
+            assert.strictEqual(random.getTailValue(), 2);
+        });
+        it('should return undefined if the list is empty', () => {
+            const emptyList = new LinkedList<number>();
+
+            assert.strictEqual(emptyList.getTailValue(), undefined);
+        });
     });
 
     describe('contains()', () => {
@@ -47,32 +113,6 @@ describe('Linked List', () => {
                 assert.strictEqual(value, expectedValue);
                 expectedValue++;
             }
-        });
-    });
-
-    describe('getHeadValue()', () => {
-        it('should return the data of the node at the head', () => {
-            assert.strictEqual(ordered.getHeadValue(), 1);
-            assert.strictEqual(backwards.getHeadValue(), 3);
-            assert.strictEqual(random.getHeadValue(), 3);
-        });
-        it('should return undefined if the list is empty', () => {
-            const emptyList = new LinkedList<number>();
-
-            assert.strictEqual(emptyList.getHeadValue(), undefined);
-        });
-    });
-
-    describe('getTailValue()', () => {
-        it('should return the data of the node at the tail', () => {
-            assert.strictEqual(ordered.getTailValue(), 4);
-            assert.strictEqual(backwards.getTailValue(), 1);
-            assert.strictEqual(random.getTailValue(), 2);
-        });
-        it('should return undefined if the list is empty', () => {
-            const emptyList = new LinkedList<number>();
-
-            assert.strictEqual(emptyList.getTailValue(), undefined);
         });
     });
 });
