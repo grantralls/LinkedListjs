@@ -1,4 +1,4 @@
-declare class LinkedList<T> {
+export declare class LinkedList<T> {
     private head;
     private tail;
     private size;
@@ -36,4 +36,3 @@ declare class LinkedList<T> {
     getTailValue(): T | undefined;
     getSize(): number;
 }
-export default LinkedList;

@@ -1,9 +1,9 @@
 import Node from './node';
 
-class LinkedList<T> {
+export class LinkedList<T> {
 	private head: Node<T> | undefined;
 	private tail: Node<T> | undefined;
-	private size = 0;
+    private size = 0;
 
     /**
      * Usage:
@@ -101,5 +101,3 @@ class LinkedList<T> {
         return this.size;
     }
 }
-
-export default LinkedList;
