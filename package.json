@@ -2,7 +2,7 @@
   "name": "linkedlist",
   "version": "1.0.0",
   "description": "A Linked List made with Typescript for practice",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "run": "node ./dist/main.js",
     "build": "tsc",
@@ -12,6 +12,10 @@
   "keywords": [],
   "author": "Grant Ralls <dev@grantralls.net> (https://grantralls.net)",
   "license": "ISC",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/grantralls/LinkedList.js.git"
+  },
   "devDependencies": {
     "@types/chai": "^4.2.14",
     "@types/mocha": "^8.2.0",
