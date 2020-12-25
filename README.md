@@ -5,7 +5,7 @@
 I created this package for the value of practice. I wanted my own implementation of a Linked List using Typescript with Generics to use in future home-projects. Consider this a work in progress, not ready for production.
 
 ## Compatibility
-This is designed to be 100% compatible with ES5. At this time, Node 10.8 the earliest.
+This is designed to be compatible with ES2017. This works best (at the time of writing) with Node 9, 10, and 11.
 
 ## Usage
 
@@ -17,4 +17,5 @@ This is designed to be 100% compatible with ES5. At this time, Node 10.8 the ear
 ### Typescript
     import { LinkedList } from "linkedlist";
 
+    // number can be changed to another type.
     const newList = new LinkedList<number>();
