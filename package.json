@@ -1,6 +1,6 @@
 {
   "name": "grant-linkedlist",
-  "version": "1.0.4",
+  "version": "1.0.41",
   "description": "A Linked List made with Javascript for practice",
   "main": "index.js",
   "scripts": {
