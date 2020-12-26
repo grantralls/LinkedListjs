@@ -1,14 +1,6 @@
-<<<<<<< HEAD
 test/
 src/
 node_modules/
 docs/
-dist/
 tsconfig.json
 .eslintrc.js
-=======
-./test/
-./src/
-./node_modules/
-./docs/
->>>>>>> 1631396cbe865dc1c10bf07f2de6d5fbd3269434
