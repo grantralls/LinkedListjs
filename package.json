@@ -1,8 +1,8 @@
 {
   "name": "grant-linkedlist",
-  "version": "1.0.41",
+  "version": "1.0.42",
   "description": "A Linked List made with Javascript for practice",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "run": "node ./dist/main.js",
     "build": "tsc",
