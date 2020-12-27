@@ -1,5 +1,5 @@
 import assert from 'assert';
-import LinkedList from '../src/index';
+import { LinkedList } from '../src/index';
 
 const ordered = new LinkedList<number>();
 ordered.append(1);

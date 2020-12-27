@@ -1,7 +1,8 @@
+import Node from './node';
 export declare class LinkedList<T> {
-    private head;
-    private tail;
-    private size;
+    protected head: Node<T> | undefined;
+    protected tail: Node<T> | undefined;
+    protected size: number;
     /**
      * Usage:
      * ```typescript

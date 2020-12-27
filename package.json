@@ -1,6 +1,6 @@
 {
   "name": "grant-linkedlist",
-  "version": "1.0.42",
+  "version": "1.0.43",
   "description": "A Linked List made with Javascript for practice",
   "main": "dist/index.js",
   "scripts": {
@@ -13,8 +13,8 @@
   "author": "Grant Ralls <dev@grantralls.net> (https://grantralls.net)",
   "license": "ISC",
   "repository": {
-      "type": "git",
-      "url": "https://github.com/grantralls/LinkedList.js.git"
+    "type": "git",
+    "url": "https://github.com/grantralls/LinkedList.js.git"
   },
   "devDependencies": {
     "@types/chai": "^4.2.14",
