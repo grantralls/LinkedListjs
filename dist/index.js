@@ -49,6 +49,50 @@ class LinkedList {
         }
         this.size++;
     }
+    removeHead() {
+        this.head = this.head.next;
+        this.size--;
+    }
+    removeTail() {
+        if (this.size == 1) {
+            this.head = undefined;
+            this.tail = undefined;
+            this.size--;
+            return;
+        }
+        const newTailIndex = this.size - 2;
+        let currNode = this.head;
+        for (let i = 0; i < newTailIndex; i++) {
+            currNode = currNode.next;
+        }
+    }
+    removeAtIndex(desiredIndex) {
+        this.validateIndex(desiredIndex);
+        let currNode = this.head;
+    }
+    getValueAtIndex(desiredIndex) {
+        this.validateIndex(desiredIndex);
+        let currNode = this.head;
+        for (let currIndex = 0; currIndex < desiredIndex; currIndex++) {
+            currNode = currNode.next;
+        }
+        return currNode.data;
+    }
+    validateIndex(indexToValidate) {
+        const error = new Error();
+        if (indexToValidate % 1 != 0) {
+            error.message = 'Received a decimal, expected a natural number.';
+            throw error;
+        }
+        if (indexToValidate < 0) {
+            error.message = 'Received a negative number, expected a positive number.';
+            throw error;
+        }
+        if (indexToValidate > this.size) {
+            error.message = 'Received an index larger than the size of the list.';
+            throw error;
+        }
+    }
     addFirstNode(entry) {
         const newNode = new node_1.default(entry);
         this.head = this.tail = newNode;

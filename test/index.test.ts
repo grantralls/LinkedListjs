@@ -89,6 +89,23 @@ describe('Linked List', () => {
         });
     });
 
+    describe('removeHead()', () => {
+        const removeList = random.copy();
+        removeList.removeHead();
+
+        it('should remove the head node from the list', () => {
+            assert.strictEqual(removeList.getHeadValue(), 1);
+        });
+
+        it('should have a size of 1 less than the original', () => {
+            assert.strictEqual(removeList.getSize(), random.getSize() - 1);
+        });
+
+        it('should have a size of 1 less than the original', () => {
+            assert.strictEqual(removeList.getTailValue(), random.getTailValue());
+        });
+    });
+
     describe('getHeadValue()', () => {
         it('should return the data of the node at the head', () => {
             assert.strictEqual(ordered.getHeadValue(), 1);
@@ -112,6 +129,41 @@ describe('Linked List', () => {
             const emptyList = new LinkedList<number>();
 
             assert.strictEqual(emptyList.getTailValue(), undefined);
+        });
+    });
+
+    describe('getAtIndex()', () => {
+
+        const indexList = random.copy();
+
+        it('should return the data at the node accurately on a non-empty list', () => {
+            assert.strictEqual(indexList.getValueAtIndex(0), 3);
+            assert.strictEqual(indexList.getValueAtIndex(1), 1);
+            assert.strictEqual(indexList.getValueAtIndex(2), 2);
+        });
+
+        it('should throw an error when attempting to retrieve the value at an index that goes beyond the positive bounds of the list', () => {
+            assert.throws(() => {
+                indexList.getValueAtIndex(4);
+            }, {
+                message: 'Received an index larger than the size of the list.'
+            }, 'Should have thrown an error but did not.');
+        });
+
+        it('should throw an error when attempting to retrieve the value at an index below 0', () => {
+            assert.throws(() => {
+                indexList.getValueAtIndex(-1);
+            }, {
+                message: 'Received a negative number, expected a positive number.'
+            }, 'Should have thrown an error but did not.');
+        });
+
+        it('should throw an error when attempting to retrieve the value at an index that is a decimal number', () => {
+            assert.throws(() => {
+                indexList.getValueAtIndex(1.5);
+            }, {
+                message: 'Received a decimal, expected a natural number.'
+            }, 'Should have thrown an error but did not.');
         });
     });
 

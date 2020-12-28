@@ -51,6 +51,67 @@ export class LinkedList<T> {
 		this.size++;
 	}
 
+    removeHead(): void {
+        this.head = this.head.next;
+        this.size--;
+    }
+
+    removeTail(): void {
+
+        if(this.size == 1) {
+            this.head = undefined;
+            this.tail = undefined;
+            this.size--;
+            return;
+        }
+
+        const newTailIndex = this.size - 2;
+        let currNode = this.head;
+
+        for(let i = 0; i < newTailIndex; i++) {
+            currNode = currNode.next;
+        }
+
+    }
+
+    removeAtIndex(desiredIndex: number): void {
+        this.validateIndex(desiredIndex);
+
+        let currNode = this.head;
+    }
+
+    getValueAtIndex(desiredIndex: number): T {
+        this.validateIndex(desiredIndex);
+
+        let currNode = this.head;
+
+        for(let currIndex = 0; currIndex < desiredIndex; currIndex++) {
+            currNode = currNode.next;
+        }
+
+        return currNode.data;
+
+    }
+
+    private validateIndex(indexToValidate: number): void {
+        const error = new Error();
+
+        if(indexToValidate % 1 != 0) {
+            error.message = 'Received a decimal, expected a natural number.';
+            throw error;
+        }
+
+        if(indexToValidate < 0) {
+            error.message = 'Received a negative number, expected a positive number.';
+            throw error;
+        }
+
+        if(indexToValidate > this.size) {
+            error.message = 'Received an index larger than the size of the list.';
+            throw error;
+        }
+    }
+
 	private addFirstNode(entry: T) {
 		const newNode: Node<T> = new Node<T>(entry);
 		this.head = this.tail = newNode;
