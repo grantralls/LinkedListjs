@@ -1,5 +1,6 @@
 import assert from 'assert';
 import { LinkedList } from '../src/index';
+import { describe, it } from 'mocha';
 
 const ordered = new LinkedList<number>();
 ordered.append(1);
@@ -28,20 +29,23 @@ describe('Linked List', () => {
             }
         });
 
+        it('should create a deep copy that has the same head value, tail value, and size of the original', () => {
+            const headEquivalency = (deepList.getHeadValue() == ordered.getHeadValue());
+            const tailEquivalency = (deepList.getTailValue() == ordered.getTailValue());
+            const sizeEquivalency = (deepList.getSize() == ordered.getSize());
+
+            assert.strictEqual(headEquivalency, true);
+            assert.strictEqual(tailEquivalency, true);
+            assert.strictEqual(sizeEquivalency, true);
+        });
+
         it('should create a deep copy that has the exact same data as the original', () => {
             const originalListData: Array<number> = [];
             const deepCopyListData: Array<number> = [];
 
             const orderedIterator = ordered.traverse();
             const deepIterator = deepList.traverse();
-
-            if(deepList.getSize() > ordered.getSize()) {
-                console.log(`${deepList.getSize()} -> ${ordered.getSize()}`);
-                assert.fail('The dataset of the deep copy has more members than the original');
-            } else if(deepList.getSize() < ordered.getSize()) {
-                assert.fail('The dataset of the deep copy has less members than the original');
-            }
-
+            
             for(const value of orderedIterator) {
                 originalListData.push(value);
             }
@@ -63,6 +67,16 @@ describe('Linked List', () => {
         const mutatedOrdered = ordered.copy();
         mutatedOrdered.append(4);
         assert.strictEqual(mutatedOrdered.getTailValue(), 4);
+    });
+
+    describe('prepend()', () => {
+
+        const prependList = random.copy();
+        prependList.prepend(-2);
+
+        it('should add to the end of the list.', () => {
+            assert.strictEqual(prependList.getHeadValue(), -2);
+        });
     });
 
     describe('getHeadValue()', () => {
