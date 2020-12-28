@@ -20,10 +20,19 @@ backwards.append(1);
 
 describe('Linked List', () => {
     
-    it('should append to end of list', () => {
+    describe('append()', () => {
+
         const mutatedOrdered = ordered.copy();
         mutatedOrdered.append(4);
-        assert.strictEqual(mutatedOrdered.getTailValue(), 4);
+
+        it('should append to end of list', () => {
+            assert.strictEqual(mutatedOrdered.getTailValue(), 4);
+        });
+
+        it('should add to the size of the list', () => {
+            assert.strictEqual(mutatedOrdered.getSize(), ordered.getSize() + 1);
+        })
+
     });
 
     describe('prepend()', () => {
@@ -102,6 +111,16 @@ describe('Linked List', () => {
             assert.strictEqual(indexList.getValueAtIndex(0), 3);
             assert.strictEqual(indexList.getValueAtIndex(1), 1);
             assert.strictEqual(indexList.getValueAtIndex(2), 2);
+        });
+
+        it('should throw an error when attempting to access index 0 on an empty list', () => {
+            const emptyList = new LinkedList<number>();
+            
+            assert.throws(() => {
+                emptyList.getValueAtIndex(0);
+            }, {
+                message: 'Received an index larger than the size of the list.'
+            }, 'Should have thrown an error but did not.');
         });
 
         it('should throw an error when attempting to retrieve the value at an index that goes beyond the positive bounds of the list', () => {
