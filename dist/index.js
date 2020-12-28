@@ -35,6 +35,7 @@ class LinkedList {
             newNode.next = this.head;
             this.head = newNode;
         }
+        this.size++;
     }
     /**
      * @param entry Data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
@@ -48,6 +49,60 @@ class LinkedList {
             this.tail = this.tail.next;
         }
         this.size++;
+    }
+    removeHead() {
+        this.removeAtIndex(0);
+    }
+    removeTail() {
+        this.removeAtIndex(this.size - 1);
+    }
+    removeAtIndex(desiredIndex) {
+        this.validateIndex(desiredIndex);
+        if (this.size == 1) {
+            this.head = undefined;
+            this.tail = undefined;
+            this.size--;
+            return;
+        }
+        if (desiredIndex == 0) {
+            const newNode = this.head.next;
+            this.head = newNode;
+            this.size--;
+            return;
+        }
+        let currNode = this.head;
+        for (let i = 0; i < desiredIndex - 1; i++) {
+            currNode = currNode.next;
+        }
+        const prevNode = currNode;
+        prevNode.next = currNode.next.next;
+        if (desiredIndex == this.size - 1) {
+            this.tail = prevNode;
+        }
+        this.size--;
+    }
+    getValueAtIndex(desiredIndex) {
+        this.validateIndex(desiredIndex);
+        let currNode = this.head;
+        for (let currIndex = 0; currIndex < desiredIndex; currIndex++) {
+            currNode = currNode.next;
+        }
+        return currNode.data;
+    }
+    validateIndex(indexToValidate) {
+        const error = new Error();
+        if (indexToValidate % 1 != 0) {
+            error.message = 'Received a decimal, expected a natural number.';
+            throw error;
+        }
+        if (indexToValidate < 0) {
+            error.message = 'Received a negative number, expected a positive number.';
+            throw error;
+        }
+        if (indexToValidate >= this.size) {
+            error.message = 'Received an index larger than the size of the list.';
+            throw error;
+        }
     }
     addFirstNode(entry) {
         const newNode = new node_1.default(entry);

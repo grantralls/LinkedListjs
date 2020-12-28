@@ -35,6 +35,8 @@ export class LinkedList<T> {
 
             this.head = newNode;
         }
+
+        this.size++;
     }
 
 	/**
@@ -50,6 +52,79 @@ export class LinkedList<T> {
 
 		this.size++;
 	}
+
+    removeHead(): void {
+        this.removeAtIndex(0);
+    }
+
+    removeTail(): void {
+        this.removeAtIndex(this.size - 1);
+    }
+
+    removeAtIndex(desiredIndex: number): void {
+        this.validateIndex(desiredIndex);
+
+        if(this.size == 1) {
+            this.head = undefined;
+            this.tail = undefined;
+            this.size--;
+            return;
+        }
+
+        if(desiredIndex == 0) {
+            const newNode = this.head.next;
+            this.head = newNode;
+            this.size--;
+            return;
+        }
+
+        let currNode = this.head;
+
+        for(let i = 0; i < desiredIndex - 1; i++) {
+            currNode = currNode.next;
+        }
+
+        const prevNode = currNode;
+        prevNode.next = currNode.next.next;
+
+        if(desiredIndex == this.size - 1) {
+            this.tail = prevNode;
+        }
+
+        this.size--;
+    }
+
+    getValueAtIndex(desiredIndex: number): T {
+        this.validateIndex(desiredIndex);
+
+        let currNode = this.head;
+
+        for(let currIndex = 0; currIndex < desiredIndex; currIndex++) {
+            currNode = currNode.next;
+        }
+
+        return currNode.data;
+
+    }
+
+    private validateIndex(indexToValidate: number): void {
+        const error = new Error();
+
+        if(indexToValidate % 1 != 0) {
+            error.message = 'Received a decimal, expected a natural number.';
+            throw error;
+        }
+
+        if(indexToValidate < 0) {
+            error.message = 'Received a negative number, expected a positive number.';
+            throw error;
+        }
+
+        if(indexToValidate >= this.size) {
+            error.message = 'Received an index larger than the size of the list.';
+            throw error;
+        }
+    }
 
 	private addFirstNode(entry: T) {
 		const newNode: Node<T> = new Node<T>(entry);
