@@ -19,6 +19,16 @@ backwards.append(1);
 
 
 describe('Linked List', () => {
+    describe('getSize()', () => {
+        it('should accurately return the number of nodes in the list as a number', () => {
+            const emptyList = new LinkedList<number>();
+
+            assert.strictEqual(ordered.getSize(), 3);
+            assert.strictEqual(emptyList.getSize(), 0);
+            assert.strictEqual(random.getSize(), 3);
+        });
+    });
+
     describe('copy()', () => {
 
         const deepList = ordered.copy();
@@ -45,7 +55,7 @@ describe('Linked List', () => {
 
             const orderedIterator = ordered.traverse();
             const deepIterator = deepList.traverse();
-            
+
             for(const value of orderedIterator) {
                 originalListData.push(value);
             }
