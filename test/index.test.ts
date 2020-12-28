@@ -19,6 +19,27 @@ backwards.append(1);
 
 
 describe('Linked List', () => {
+    
+    it('should append to end of list', () => {
+        const mutatedOrdered = ordered.copy();
+        mutatedOrdered.append(4);
+        assert.strictEqual(mutatedOrdered.getTailValue(), 4);
+    });
+
+    describe('prepend()', () => {
+
+        const prependList = random.copy();
+        prependList.prepend(-2);
+
+        it('should add to the beginning of the list.', () => {
+            assert.strictEqual(prependList.getHeadValue(), -2);
+        });
+
+        it('should add to the size of the list', () => {
+            assert.strictEqual(prependList.getSize(), random.getSize() + 1);
+        })
+    });
+
     describe('getSize()', () => {
         it('should accurately return the number of nodes in the list as a number', () => {
             const emptyList = new LinkedList<number>();
@@ -72,65 +93,6 @@ describe('Linked List', () => {
             
         });
     });
-    
-    it('should append to end of list', () => {
-        const mutatedOrdered = ordered.copy();
-        mutatedOrdered.append(4);
-        assert.strictEqual(mutatedOrdered.getTailValue(), 4);
-    });
-
-    describe('prepend()', () => {
-
-        const prependList = random.copy();
-        prependList.prepend(-2);
-
-        it('should add to the end of the list.', () => {
-            assert.strictEqual(prependList.getHeadValue(), -2);
-        });
-    });
-
-    describe('removeHead()', () => {
-        const removeList = random.copy();
-        removeList.removeHead();
-
-        it('should remove the head node from the list', () => {
-            assert.strictEqual(removeList.getHeadValue(), 1);
-        });
-
-        it('should have a size of 1 less than the original', () => {
-            assert.strictEqual(removeList.getSize(), random.getSize() - 1);
-        });
-
-        it('should have a size of 1 less than the original', () => {
-            assert.strictEqual(removeList.getTailValue(), random.getTailValue());
-        });
-    });
-
-    describe('getHeadValue()', () => {
-        it('should return the data of the node at the head', () => {
-            assert.strictEqual(ordered.getHeadValue(), 1);
-            assert.strictEqual(backwards.getHeadValue(), 3);
-            assert.strictEqual(random.getHeadValue(), 3);
-        });
-        it('should return undefined if the list is empty', () => {
-            const emptyList = new LinkedList<number>();
-
-            assert.strictEqual(emptyList.getHeadValue(), undefined);
-        });
-    });
-
-    describe('getTailValue()', () => {
-        it('should return the data of the node at the tail', () => {
-            assert.strictEqual(ordered.getTailValue(), 3);
-            assert.strictEqual(backwards.getTailValue(), 1);
-            assert.strictEqual(random.getTailValue(), 2);
-        });
-        it('should return undefined if the list is empty', () => {
-            const emptyList = new LinkedList<number>();
-
-            assert.strictEqual(emptyList.getTailValue(), undefined);
-        });
-    });
 
     describe('getAtIndex()', () => {
 
@@ -164,6 +126,92 @@ describe('Linked List', () => {
             }, {
                 message: 'Received a decimal, expected a natural number.'
             }, 'Should have thrown an error but did not.');
+        });
+    });
+
+    describe('getHeadValue()', () => {
+        it('should return the data of the node at the head', () => {
+            assert.strictEqual(ordered.getHeadValue(), 1);
+            assert.strictEqual(backwards.getHeadValue(), 3);
+            assert.strictEqual(random.getHeadValue(), 3);
+        });
+        it('should return undefined if the list is empty', () => {
+            const emptyList = new LinkedList<number>();
+
+            assert.strictEqual(emptyList.getHeadValue(), undefined);
+        });
+    });
+
+    describe('getTailValue()', () => {
+        it('should return the data of the node at the tail', () => {
+            assert.strictEqual(ordered.getTailValue(), 3);
+            assert.strictEqual(backwards.getTailValue(), 1);
+            assert.strictEqual(random.getTailValue(), 2);
+        });
+        it('should return undefined if the list is empty', () => {
+            const emptyList = new LinkedList<number>();
+
+            assert.strictEqual(emptyList.getTailValue(), undefined);
+        });
+    });
+
+    describe('removeAtIndex()', () => {
+        const removedList = ordered.copy();
+        
+        const singleList = new LinkedList<number>();
+        singleList.append(1);
+
+        it('should make the list empty when removing the last item in the list', () => {
+            singleList.removeAtIndex(0);
+
+            assert.strictEqual(singleList.getSize(), 0);
+            assert.strictEqual(singleList.getHeadValue(), undefined);
+            assert.strictEqual(singleList.getTailValue(), undefined);
+        });
+
+        it('should remove the node from the proper index', () => {
+            removedList.removeAtIndex(1);
+            const solution = [1, 3];
+
+            for(let i = 0; i < removedList.getSize(); i++) {
+                assert.strictEqual(removedList.getValueAtIndex(i), solution[i]);
+            }
+
+            assert.strictEqual(removedList.getSize(), ordered.getSize() - 1);
+        });
+    });
+
+    describe('removeHead()', () => {
+        const removeList = random.copy();
+        removeList.removeHead();
+
+        it('should remove the head node from the list', () => {
+            assert.strictEqual(removeList.getHeadValue(), 1);
+        });
+
+        it('should have a size of 1 less than the original', () => {
+            assert.strictEqual(removeList.getSize(), random.getSize() - 1);
+        });
+
+        it('should have the same tail value as the original', () => {
+            assert.strictEqual(removeList.getTailValue(), random.getTailValue());
+        });
+    });
+
+    describe('removeTail()', () => {
+        const removeList = random.copy();
+        removeList.removeTail();
+
+        it('should have the same head value as the original', () => {
+            assert.strictEqual(removeList.getHeadValue(), 3);
+        });
+
+        it('should have a size of 1 less than the original', () => {
+            assert.strictEqual(removeList.getSize(), random.getSize() - 1);
+        });
+
+        it('should remove the tail node from the list', () => {
+            assert.strictEqual(removeList.getTailValue(), 1);
         });
     });
 
