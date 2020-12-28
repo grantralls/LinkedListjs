@@ -25,6 +25,18 @@ export class LinkedList<T> {
         return newList;
     }
 
+    prepend(entry: T): void {
+        if(this.tail == undefined) {
+            this.addFirstNode(entry);
+        } else {
+            const newNode = new Node<T>(entry);
+
+            newNode.next = this.head;
+
+            this.head = newNode;
+        }
+    }
+
 	/**
 	 * @param entry Data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
 	 */

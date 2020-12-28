@@ -26,6 +26,16 @@ class LinkedList {
         }
         return newList;
     }
+    prepend(entry) {
+        if (this.tail == undefined) {
+            this.addFirstNode(entry);
+        }
+        else {
+            const newNode = new node_1.default(entry);
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+    }
     /**
      * @param entry Data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
      */

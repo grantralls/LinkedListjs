@@ -1,12 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Node = /** @class */ (function () {
-    function Node(entry) {
+class Node {
+    constructor(entry) {
         this.data = entry;
     }
-    Node.prototype.print = function () {
+    print() {
         console.log(this.data);
-    };
-    return Node;
-}());
+    }
+}
 exports.default = Node;

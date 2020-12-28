@@ -13,6 +13,7 @@ export declare class LinkedList<T> {
      * @returns A new linked list that does not reference the original.
      */
     copy(): LinkedList<T>;
+    prepend(entry: T): void;
     /**
      * @param entry Data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
      */
