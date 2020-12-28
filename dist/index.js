@@ -35,6 +35,7 @@ class LinkedList {
             newNode.next = this.head;
             this.head = newNode;
         }
+        this.size++;
     }
     /**
      * @param entry Data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
@@ -50,25 +51,35 @@ class LinkedList {
         this.size++;
     }
     removeHead() {
-        this.head = this.head.next;
-        this.size--;
+        this.removeAtIndex(0);
     }
     removeTail() {
+        this.removeAtIndex(this.size - 1);
+    }
+    removeAtIndex(desiredIndex) {
+        this.validateIndex(desiredIndex);
         if (this.size == 1) {
             this.head = undefined;
             this.tail = undefined;
             this.size--;
             return;
         }
-        const newTailIndex = this.size - 2;
+        if (desiredIndex == 0) {
+            const newNode = this.head.next;
+            this.head = newNode;
+            this.size--;
+            return;
+        }
         let currNode = this.head;
-        for (let i = 0; i < newTailIndex; i++) {
+        for (let i = 0; i < desiredIndex - 1; i++) {
             currNode = currNode.next;
         }
-    }
-    removeAtIndex(desiredIndex) {
-        this.validateIndex(desiredIndex);
-        let currNode = this.head;
+        const prevNode = currNode;
+        prevNode.next = currNode.next.next;
+        if (desiredIndex == this.size - 1) {
+            this.tail = prevNode;
+        }
+        this.size--;
     }
     getValueAtIndex(desiredIndex) {
         this.validateIndex(desiredIndex);
@@ -88,7 +99,7 @@ class LinkedList {
             error.message = 'Received a negative number, expected a positive number.';
             throw error;
         }
-        if (indexToValidate > this.size) {
+        if (indexToValidate >= this.size) {
             error.message = 'Received an index larger than the size of the list.';
             throw error;
         }

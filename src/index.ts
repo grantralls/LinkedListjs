@@ -35,6 +35,8 @@ export class LinkedList<T> {
 
             this.head = newNode;
         }
+
+        this.size++;
     }
 
 	/**
@@ -52,11 +54,15 @@ export class LinkedList<T> {
 	}
 
     removeHead(): void {
-        this.head = this.head.next;
-        this.size--;
+        this.removeAtIndex(0);
     }
 
     removeTail(): void {
+        this.removeAtIndex(this.size - 1);
+    }
+
+    removeAtIndex(desiredIndex: number): void {
+        this.validateIndex(desiredIndex);
 
         if(this.size == 1) {
             this.head = undefined;
@@ -65,19 +71,27 @@ export class LinkedList<T> {
             return;
         }
 
-        const newTailIndex = this.size - 2;
+        if(desiredIndex == 0) {
+            const newNode = this.head.next;
+            this.head = newNode;
+            this.size--;
+            return;
+        }
+
         let currNode = this.head;
 
-        for(let i = 0; i < newTailIndex; i++) {
+        for(let i = 0; i < desiredIndex - 1; i++) {
             currNode = currNode.next;
         }
 
-    }
+        const prevNode = currNode;
+        prevNode.next = currNode.next.next;
 
-    removeAtIndex(desiredIndex: number): void {
-        this.validateIndex(desiredIndex);
+        if(desiredIndex == this.size - 1) {
+            this.tail = prevNode;
+        }
 
-        let currNode = this.head;
+        this.size--;
     }
 
     getValueAtIndex(desiredIndex: number): T {
@@ -106,7 +120,7 @@ export class LinkedList<T> {
             throw error;
         }
 
-        if(indexToValidate > this.size) {
+        if(indexToValidate >= this.size) {
             error.message = 'Received an index larger than the size of the list.';
             throw error;
         }
