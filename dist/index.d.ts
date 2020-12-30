@@ -13,28 +13,24 @@ export declare class LinkedList<T> {
      * @returns A new linked list that does not reference the original.
      */
     copy(): LinkedList<T>;
-    prepend(entry: T): void;
     /**
-     * @param entry Data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
+     * Adds a data value to the end of the list.
+     * @param entry Data to append. The type can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
      */
     append(entry: T): void;
-    removeHead(): void;
-    removeTail(): void;
-    removeAtIndex(desiredIndex: number): void;
-    getValueAtIndex(desiredIndex: number): T;
-    private validateIndex;
-    private addFirstNode;
     /**
-     * @returns Returns a Javascript [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator).
+     * Adds a data value to the beginning of the list.
+     * @param entry Data to prepend. The type can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
      */
-    traverse(): IterableIterator<T>;
+    prepend(entry: T): void;
     /**
-     * This search is done over O(n) time since the list is not ordered.
+     * Searches iteratively for the first instance of the parameter in the list.
      * @param value Value to search for.
      */
     contains(value: T): boolean;
     /**
-     * @returns Returns the data value of the head node.
+     *
+     * @returns Returns the data value of the head node. The type can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
      */
     getHeadValue(): T | undefined;
     /**
@@ -42,4 +38,14 @@ export declare class LinkedList<T> {
      */
     getTailValue(): T | undefined;
     getSize(): number;
+    removeHead(): void;
+    removeTail(): void;
+    removeAtIndex(desiredIndex: number): void;
+    getValueAtIndex(desiredIndex: number): T;
+    /**
+     * @returns Returns a Javascript [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator).
+     */
+    traverse(): IterableIterator<T>;
+    private validateIndex;
+    private addFirstNode;
 }

@@ -25,6 +25,25 @@ export class LinkedList<T> {
         return newList;
     }
 
+	/**
+     * Adds a data value to the end of the list.
+	 * @param entry Data to append. The type can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
+	 */
+	append(entry: T): void {
+		if (this.tail == undefined) {
+			this.addFirstNode(entry);
+		} else {
+			this.tail.next = new Node<T>(entry);
+			this.tail = this.tail.next;
+		}
+
+		this.size++;
+	}
+
+    /**
+     * Adds a data value to the beginning of the list.
+     * @param entry Data to prepend. The type can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
+     */
     prepend(entry: T): void {
         if(this.tail == undefined) {
             this.addFirstNode(entry);
@@ -39,19 +58,51 @@ export class LinkedList<T> {
         this.size++;
     }
 
-	/**
-	 * @param entry Data to append. This can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
-	 */
-	append(entry: T): void {
-		if (this.tail == undefined) {
-			this.addFirstNode(entry);
-		} else {
-			this.tail.next = new Node<T>(entry);
-			this.tail = this.tail.next;
+    /**
+     * Searches iteratively for the first instance of the parameter in the list.
+     * @param value Value to search for.
+     */
+	contains(value: T): boolean {
+		if (this.size == 0) {
+			return false;
 		}
 
-		this.size++;
-	}
+        let currNode: Node<T> | undefined = this.head;
+        while(currNode != undefined && currNode.data !== value) {
+            currNode = currNode.next;
+        }
+
+        if(currNode != undefined) {
+            return currNode.data === value;
+        }
+
+        return false;
+    }
+
+    /**
+     * 
+     * @returns Returns the data value of the head node. The type can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
+     */
+    getHeadValue(): T | undefined {
+        if(this.head != undefined) {
+            return this.head.data;
+        }
+        return undefined;
+    }
+
+    /**
+     * @returns Returns the data value of the tail node. The type can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
+     */
+    getTailValue(): T | undefined {
+        if(this.tail != undefined) {
+            return this.tail.data;
+        }
+        return undefined;
+    }
+
+    getSize(): number {
+        return this.size;
+    }
 
     removeHead(): void {
         this.removeAtIndex(0);
@@ -107,6 +158,18 @@ export class LinkedList<T> {
 
     }
 
+    /**
+     * @returns Returns a Javascript [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator).
+     */
+	*traverse(): IterableIterator<T> {
+		let currNode = this.head;
+
+		while (currNode != undefined) {
+			yield currNode.data;
+			currNode = currNode.next;
+		}
+	}
+
     private validateIndex(indexToValidate: number): void {
         const error = new Error();
 
@@ -131,60 +194,4 @@ export class LinkedList<T> {
 		this.head = this.tail = newNode;
 	}
 
-    /**
-     * @returns Returns a Javascript [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator).
-     */
-	*traverse(): IterableIterator<T> {
-		let currNode = this.head;
-
-		while (currNode != undefined) {
-			yield currNode.data;
-			currNode = currNode.next;
-		}
-	}
-
-    /**
-     * This search is done over O(n) time since the list is not ordered.
-     * @param value Value to search for.
-     */
-	contains(value: T): boolean {
-		if (this.size == 0) {
-			return false;
-		}
-
-        let currNode: Node<T> | undefined = this.head;
-        while(currNode != undefined && currNode.data !== value) {
-            currNode = currNode.next;
-        }
-
-        if(currNode != undefined) {
-            return currNode.data === value;
-        }
-
-        return false;
-    }
-    
-    /**
-     * @returns Returns the data value of the head node.
-     */
-    getHeadValue(): T | undefined {
-        if(this.head != undefined) {
-            return this.head.data;
-        }
-        return undefined;
-    }
-
-    /**
-     * @returns Returns the data value of the tail node.
-     */
-    getTailValue(): T | undefined {
-        if(this.tail != undefined) {
-            return this.tail.data;
-        }
-        return undefined;
-    }
-
-    getSize(): number {
-        return this.size;
-    }
 }
