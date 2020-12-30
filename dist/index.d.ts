@@ -25,16 +25,15 @@ export declare class LinkedList<T> {
     prepend(entry: T): void;
     /**
      * Searches iteratively for the first instance of the parameter in the list.
-     * @param value Value to search for.
+     * @param value Value to search for. The type can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
      */
     contains(value: T): boolean;
     /**
-     *
      * @returns Returns the data value of the head node. The type can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
      */
     getHeadValue(): T | undefined;
     /**
-     * @returns Returns the data value of the tail node.
+     * @returns Returns the data value of the tail node. The type can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
      */
     getTailValue(): T | undefined;
     getSize(): number;
@@ -43,7 +42,7 @@ export declare class LinkedList<T> {
     removeAtIndex(desiredIndex: number): void;
     getValueAtIndex(desiredIndex: number): T;
     /**
-     * @returns Returns a Javascript [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator).
+     * @returns a Javascript [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator).
      */
     traverse(): IterableIterator<T>;
     private validateIndex;

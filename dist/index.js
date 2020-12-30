@@ -57,7 +57,7 @@ class LinkedList {
     }
     /**
      * Searches iteratively for the first instance of the parameter in the list.
-     * @param value Value to search for.
+     * @param value Value to search for. The type can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
      */
     contains(value) {
         if (this.size == 0) {
@@ -73,7 +73,6 @@ class LinkedList {
         return false;
     }
     /**
-     *
      * @returns Returns the data value of the head node. The type can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
      */
     getHeadValue() {
@@ -83,7 +82,7 @@ class LinkedList {
         return undefined;
     }
     /**
-     * @returns Returns the data value of the tail node.
+     * @returns Returns the data value of the tail node. The type can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
      */
     getTailValue() {
         if (this.tail != undefined) {
@@ -134,7 +133,7 @@ class LinkedList {
         return currNode.data;
     }
     /**
-     * @returns Returns a Javascript [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator).
+     * @returns a Javascript [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator).
      */
     *traverse() {
         let currNode = this.head;

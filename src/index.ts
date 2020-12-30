@@ -60,7 +60,7 @@ export class LinkedList<T> {
 
     /**
      * Searches iteratively for the first instance of the parameter in the list.
-     * @param value Value to search for.
+     * @param value Value to search for. The type can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
      */
 	contains(value: T): boolean {
 		if (this.size == 0) {
@@ -80,7 +80,6 @@ export class LinkedList<T> {
     }
 
     /**
-     * 
      * @returns Returns the data value of the head node. The type can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
      */
     getHeadValue(): T | undefined {
@@ -159,7 +158,7 @@ export class LinkedList<T> {
     }
 
     /**
-     * @returns Returns a Javascript [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator).
+     * @returns a Javascript [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator).
      */
 	*traverse(): IterableIterator<T> {
 		let currNode = this.head;
