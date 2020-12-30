@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "run": "node ./dist/main.js",
+    "prebuild": "typedoc --out docs/ src/",
     "build": "tsc",
     "test": "mocha --require ts-node/register --extensions ts,tsx src 'test/**/*.{ts,tsx}'",
     "doc": "typedoc --out docs/ src/"
