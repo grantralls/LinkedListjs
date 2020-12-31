@@ -218,7 +218,7 @@ newList.append(2);
 const listIterator = newList.traverse();
 
 for (const value in listIterator) {
-	console.log(value);
+    console.log(value);
 }
 
 // Console: 1 2
