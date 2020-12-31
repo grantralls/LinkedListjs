@@ -30,6 +30,8 @@ export class LinkedList<T> {
 	 * @param entry Data to append. The type can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
 	 */
 	append(entry: T): void {
+        this.checkForUndefined(entry);
+
 		if (this.tail == undefined) {
 			this.addFirstNode(entry);
 		} else {
@@ -45,6 +47,8 @@ export class LinkedList<T> {
      * @param entry Data to prepend. The type can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
      */
     prepend(entry: T): void {
+        this.checkForUndefined(entry);
+
         if(this.tail == undefined) {
             this.addFirstNode(entry);
         } else {
@@ -63,6 +67,8 @@ export class LinkedList<T> {
      * @param value Value to search for. The type can be variable due to [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html).
      */
 	contains(value: T): boolean {
+        this.checkForUndefined(value);
+
 		if (this.size == 0) {
 			return false;
 		}
@@ -188,9 +194,15 @@ export class LinkedList<T> {
         }
     }
 
+    private checkForUndefined(value: T) {
+        if(typeof value === 'undefined') {
+            throw new Error('Expected some input, got undefined.');
+        }
+    }
+
 	private addFirstNode(entry: T) {
 		const newNode: Node<T> = new Node<T>(entry);
 		this.head = this.tail = newNode;
-	}
+    }
 
 }

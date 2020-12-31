@@ -46,5 +46,6 @@ export declare class LinkedList<T> {
      */
     traverse(): IterableIterator<T>;
     private validateIndex;
+    private checkForUndefined;
     private addFirstNode;
 }

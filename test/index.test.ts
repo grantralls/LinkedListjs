@@ -31,7 +31,16 @@ describe('Linked List', () => {
 
         it('should add to the size of the list', () => {
             assert.strictEqual(mutatedOrdered.getSize(), ordered.getSize() + 1);
-        })
+        });
+
+        it('should throw an error when attempting to append with no parameter', () => {
+            assert.throws(() => {
+                // @ts-ignore
+                mutatedOrdered.append();
+            }, {
+                message: 'Expected some input, got undefined.'
+            }, 'Should have thrown an error but did not.');
+        });
 
     });
 
@@ -46,7 +55,16 @@ describe('Linked List', () => {
 
         it('should add to the size of the list', () => {
             assert.strictEqual(prependList.getSize(), random.getSize() + 1);
-        })
+        });
+
+        it('should throw an error when attempting to prepend with no parameter', () => {
+            assert.throws(() => {
+                // @ts-ignore
+                prependList.prepend();
+            }, {
+                message: 'Expected some input, got undefined.'
+            }, 'Should have thrown an error but did not.');
+        });
     });
 
     describe('getSize()', () => {
@@ -240,10 +258,20 @@ describe('Linked List', () => {
             assert.strictEqual(random.contains(1), true);
             assert.strictEqual(random.contains(3), true);
         });
+
         it('should return false if the value is not in the list', () => {
             assert.strictEqual(random.contains(5), false);
             assert.strictEqual(random.contains(0), false);
             assert.strictEqual(random.contains(-1), false);
+        });
+
+        it('should throw an error when attempting contains with no parameter', () => {
+            assert.throws(() => {
+                // @ts-ignore
+                random.contains();
+            }, {
+                message: 'Expected some input, got undefined.'
+            }, 'Should have thrown an error but did not.');
         });
     });
 
