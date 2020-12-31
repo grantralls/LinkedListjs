@@ -266,7 +266,6 @@ describe('Linked List', () => {
     describe('removeTail()', () => {
         const removeList = random.copy();
         removeList.removeTail();
-
         it('should have the same head value as the original', () => {
             assert.strictEqual(removeList.getHeadValue(), 3);
         });
