@@ -1,6 +1,6 @@
 {
   "name": "grant-linkedlist",
-  "version": "1.0.52",
+  "version": "1.0.53",
   "description": "A Linked List made with Typescript for practice",
   "main": "dist/index.js",
   "scripts": {
@@ -23,6 +23,7 @@
     "@typescript-eslint/eslint-plugin": "^4.11.0",
     "@typescript-eslint/parser": "^4.0.0",
     "eslint": "^7.16.0",
+    "eslint-config-prettier": "^7.1.0",
     "mocha": "^8.2.1",
     "prettier": "2.2.1",
     "ts-node": "^9.1.1",
