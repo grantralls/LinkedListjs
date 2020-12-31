@@ -152,11 +152,13 @@ class LinkedList {
             throw error;
         }
         if (indexToValidate < 0) {
-            error.message = 'Received a negative number, expected a positive number.';
+            error.message =
+                'Received a negative number, expected a positive number.';
             throw error;
         }
         if (indexToValidate >= this.size) {
-            error.message = 'Received an index larger than the size of the list.';
+            error.message =
+                'Received an index larger than the size of the list.';
             throw error;
         }
     }
