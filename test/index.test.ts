@@ -85,17 +85,13 @@ describe('Linked List', () => {
 
 		it('should create a deep copy of the original list that no longer is equal to the original list', () => {
 			if (deepList == ordered) {
-				assert.fail(
-					'The deep copy is referencing the original, it should not be.'
-				);
+				assert.fail('The deep copy is referencing the original, it should not be.');
 			}
 		});
 
 		it('should create a deep copy that has the same head value, tail value, and size of the original', () => {
-			const headEquivalency =
-				deepList.getHeadValue() == ordered.getHeadValue();
-			const tailEquivalency =
-				deepList.getTailValue() == ordered.getTailValue();
+			const headEquivalency = deepList.getHeadValue() == ordered.getHeadValue();
+			const tailEquivalency = deepList.getTailValue() == ordered.getTailValue();
 			const sizeEquivalency = deepList.getSize() == ordered.getSize();
 
 			assert.strictEqual(headEquivalency, true);
@@ -145,8 +141,7 @@ describe('Linked List', () => {
 					emptyList.getValueAtIndex(0);
 				},
 				{
-					message:
-						'Received an index larger than the size of the list.',
+					message: 'Received an index larger than the size of the list.',
 				},
 				'Should have thrown an error but did not.'
 			);
@@ -158,8 +153,7 @@ describe('Linked List', () => {
 					indexList.getValueAtIndex(4);
 				},
 				{
-					message:
-						'Received an index larger than the size of the list.',
+					message: 'Received an index larger than the size of the list.',
 				},
 				'Should have thrown an error but did not.'
 			);
@@ -171,8 +165,7 @@ describe('Linked List', () => {
 					indexList.getValueAtIndex(-1);
 				},
 				{
-					message:
-						'Received a negative number, expected a positive number.',
+					message: 'Received a negative number, expected a positive number.',
 				},
 				'Should have thrown an error but did not.'
 			);
@@ -256,10 +249,7 @@ describe('Linked List', () => {
 		});
 
 		it('should have the same tail value as the original', () => {
-			assert.strictEqual(
-				removeList.getTailValue(),
-				random.getTailValue()
-			);
+			assert.strictEqual(removeList.getTailValue(), random.getTailValue());
 		});
 	});
 
