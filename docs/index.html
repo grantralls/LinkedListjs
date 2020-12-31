@@ -67,7 +67,7 @@
 				<a href="#typescript-generics-linked-list" id="typescript-generics-linked-list" style="color: inherit; text-decoration: none;">
 					<h1>Typescript Generics Linked List</h1>
 				</a>
-				<p><em>Author: Grant Ralls <a href="mailto:&#100;&#101;&#x76;&#64;&#x67;&#114;&#97;&#x6e;&#116;&#x72;&#97;&#108;&#x6c;&#x73;&#46;&#x6e;&#101;&#x74;">&#100;&#101;&#x76;&#64;&#x67;&#114;&#97;&#x6e;&#116;&#x72;&#97;&#108;&#x6c;&#x73;&#46;&#x6e;&#101;&#x74;</a> <a href="https://www.grantralls.net">https://www.grantralls.net</a></em></p>
+				<p><em>Author: Grant Ralls <a href="mailto:&#x64;&#x65;&#x76;&#64;&#x67;&#x72;&#97;&#110;&#x74;&#x72;&#x61;&#x6c;&#x6c;&#115;&#46;&#110;&#101;&#x74;">&#x64;&#x65;&#x76;&#64;&#x67;&#x72;&#97;&#110;&#x74;&#x72;&#x61;&#x6c;&#x6c;&#115;&#46;&#110;&#101;&#x74;</a> <a href="https://www.grantralls.net">https://www.grantralls.net</a></em></p>
 				<a href="#foreword" id="foreword" style="color: inherit; text-decoration: none;">
 					<h2>Foreword</h2>
 				</a>
@@ -93,7 +93,7 @@ const <span class="hljs-keyword">new</span><span class="hljs-type">List</span> =
 				<a href="#typescript" id="typescript" style="color: inherit; text-decoration: none;">
 					<h3>Typescript</h3>
 				</a>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { LinkedList } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;linkedlist&quot;</span>;
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { LinkedList } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;linkedlist&#x27;</span>;
 
 <span class="hljs-comment">// number can be changed to another type.</span>
 <span class="hljs-keyword">const</span> newList = <span class="hljs-keyword">new</span> LinkedList&lt;<span class="hljs-built_in">number</span>&gt;();
@@ -231,7 +231,7 @@ newList.append(<span class="hljs-number">2</span>);
 
 <span class="hljs-keyword">const</span> listIterator = newList.traverse();
 
-<span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> value <span class="hljs-keyword">in</span> listIterator) {
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> value <span class="hljs-keyword">in</span> listIterator) {
     <span class="hljs-built_in">console</span>.log(value);
 }
 
@@ -244,10 +244,16 @@ newList.append(<span class="hljs-number">2</span>);
 					<li class="globals  ">
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
+					<li class="label tsd-is-external">
+						<span>Internals</span>
+					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/_index_.html">&quot;index&quot;</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="label tsd-is-external">
+						<span>Externals</span>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_node_.html">&quot;node&quot;</a>
 					</li>
 				</ul>
