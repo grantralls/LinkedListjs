@@ -1,7 +1,15 @@
 import { LinkedList } from './index';
 
-export default class Queue<T> {
+export class Queue<T> {
     private list = new LinkedList<T>();
+
+    copy(): Queue<T> {
+        const newQueue = new Queue<T>();
+
+        newQueue.list = this.list.copy();
+
+        return newQueue;
+    }
 
     push(value: T): void {
         this.list.append(value);
@@ -13,5 +21,25 @@ export default class Queue<T> {
         this.list.removeHead();
 
         return poppedValue;
+    }
+
+    getHead(): T {
+        return this.list.getHeadValue();
+    }
+
+    getTail(): T {
+        return this.list.getTailValue();
+    }
+
+    size(): number {
+        return this.list.getSize();
+    }
+
+    traverse(): IterableIterator<T> {
+        return this.list.traverse();
+    }
+
+    empty(): boolean {
+        return this.list.getSize() === 0;
     }
 }
