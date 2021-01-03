@@ -3,7 +3,9 @@ export declare class Queue<T> {
     copy(): Queue<T>;
     push(value: T): void;
     pop(): T;
-    getHead(): T;
-    getTail(): T;
+    front(): T;
+    back(): T;
+    size(): number;
+    traverse(): IterableIterator<T>;
     empty(): boolean;
 }

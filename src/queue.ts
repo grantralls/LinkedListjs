@@ -23,11 +23,11 @@ export class Queue<T> {
         return poppedValue;
     }
 
-    getHead(): T {
+    front(): T {
         return this.list.getHeadValue();
     }
 
-    getTail(): T {
+    back(): T {
         return this.list.getTailValue();
     }
 

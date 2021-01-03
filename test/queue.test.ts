@@ -14,15 +14,15 @@ describe('Queue', () => {
         it('should create a new queue with the same data as the original', () => {
             const copiedQueue = ordered.copy();
 
-            assert.strictEqual(ordered.getHead(), copiedQueue.getHead());
-            assert.strictEqual(ordered.getTail(), copiedQueue.getTail());
+            assert.strictEqual(ordered.front(), copiedQueue.front());
+            assert.strictEqual(ordered.back(), copiedQueue.back());
             assert.strictEqual(ordered.size(), copiedQueue.size());
         });
     });
 
     describe('push()', () => {
         it("should add to the end of the queue or 'line'", () => {
-            assert.strictEqual(ordered.getTail(), 3);
+            assert.strictEqual(ordered.back(), 3);
         });
 
         it('should result in the size of the queue being increased by 1', () => {

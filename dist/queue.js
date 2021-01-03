@@ -19,11 +19,17 @@ class Queue {
         this.list.removeHead();
         return poppedValue;
     }
-    getHead() {
+    front() {
         return this.list.getHeadValue();
     }
-    getTail() {
+    back() {
         return this.list.getTailValue();
+    }
+    size() {
+        return this.list.getSize();
+    }
+    traverse() {
+        return this.list.traverse();
     }
     empty() {
         return this.list.getSize() === 0;

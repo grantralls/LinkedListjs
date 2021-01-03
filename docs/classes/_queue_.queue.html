@@ -98,12 +98,14 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_queue_.queue.html#back" class="tsd-kind-icon">back</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_queue_.queue.html#copy" class="tsd-kind-icon">copy</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_queue_.queue.html#empty" class="tsd-kind-icon">empty</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_queue_.queue.html#gethead" class="tsd-kind-icon">get<wbr>Head</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_queue_.queue.html#gettail" class="tsd-kind-icon">get<wbr>Tail</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_queue_.queue.html#front" class="tsd-kind-icon">front</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_queue_.queue.html#pop" class="tsd-kind-icon">pop</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_queue_.queue.html#push" class="tsd-kind-icon">push</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_queue_.queue.html#size" class="tsd-kind-icon">size</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_queue_.queue.html#traverse" class="tsd-kind-icon">traverse</a></li>
 							</ul>
 						</section>
 					</div>
@@ -117,13 +119,30 @@
 					<div class="tsd-signature tsd-kind-icon">list<span class="tsd-signature-symbol">:</span> <a href="_index_.linkedlist.html" class="tsd-signature-type">LinkedList</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = new LinkedList&lt;T&gt;()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/grantralls/LinkedList.js/blob/dfe055d/src/queue.ts#L4">queue.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/grantralls/LinkedList.js/blob/86e784a/src/queue.ts#L4">queue.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="back" class="tsd-anchor"></a>
+					<h3>back</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">back<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/grantralls/LinkedList.js/blob/86e784a/src/queue.ts#L30">queue.ts:30</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="copy" class="tsd-anchor"></a>
 					<h3>copy</h3>
@@ -134,7 +153,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/grantralls/LinkedList.js/blob/dfe055d/src/queue.ts#L6">queue.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/grantralls/LinkedList.js/blob/86e784a/src/queue.ts#L6">queue.ts:6</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_queue_.queue.html" class="tsd-signature-type">Queue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -151,7 +170,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/grantralls/LinkedList.js/blob/dfe055d/src/queue.ts#L34">queue.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/grantralls/LinkedList.js/blob/86e784a/src/queue.ts#L42">queue.ts:42</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -159,33 +178,16 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="gethead" class="tsd-anchor"></a>
-					<h3>get<wbr>Head</h3>
+					<a name="front" class="tsd-anchor"></a>
+					<h3>front</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Head<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+						<li class="tsd-signature tsd-kind-icon">front<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/grantralls/LinkedList.js/blob/dfe055d/src/queue.ts#L26">queue.ts:26</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="gettail" class="tsd-anchor"></a>
-					<h3>get<wbr>Tail</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Tail<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/grantralls/LinkedList.js/blob/dfe055d/src/queue.ts#L30">queue.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/grantralls/LinkedList.js/blob/86e784a/src/queue.ts#L26">queue.ts:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
@@ -202,7 +204,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/grantralls/LinkedList.js/blob/dfe055d/src/queue.ts#L18">queue.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/grantralls/LinkedList.js/blob/86e784a/src/queue.ts#L18">queue.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
@@ -219,7 +221,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/grantralls/LinkedList.js/blob/dfe055d/src/queue.ts#L14">queue.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/grantralls/LinkedList.js/blob/86e784a/src/queue.ts#L14">queue.ts:14</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -229,6 +231,40 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="size" class="tsd-anchor"></a>
+					<h3>size</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/grantralls/LinkedList.js/blob/86e784a/src/queue.ts#L34">queue.ts:34</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="traverse" class="tsd-anchor"></a>
+					<h3>traverse</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">traverse<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/grantralls/LinkedList.js/blob/86e784a/src/queue.ts#L38">queue.ts:38</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -268,22 +304,28 @@
 								<a href="_queue_.queue.html#list" class="tsd-kind-icon">list</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_queue_.queue.html#back" class="tsd-kind-icon">back</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_queue_.queue.html#copy" class="tsd-kind-icon">copy</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_queue_.queue.html#empty" class="tsd-kind-icon">empty</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_queue_.queue.html#gethead" class="tsd-kind-icon">get<wbr>Head</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_queue_.queue.html#gettail" class="tsd-kind-icon">get<wbr>Tail</a>
+								<a href="_queue_.queue.html#front" class="tsd-kind-icon">front</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_queue_.queue.html#pop" class="tsd-kind-icon">pop</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_queue_.queue.html#push" class="tsd-kind-icon">push</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_queue_.queue.html#size" class="tsd-kind-icon">size</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_queue_.queue.html#traverse" class="tsd-kind-icon">traverse</a>
 							</li>
 						</ul>
 					</li>
