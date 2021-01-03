@@ -12,7 +12,7 @@
   },
   "keywords": [],
   "author": "Grant Ralls <dev@grantralls.net> (https://grantralls.net)",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/grantralls/LinkedList.js.git"
