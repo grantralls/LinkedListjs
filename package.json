@@ -1,7 +1,7 @@
 {
-  "name": "grant-linkedlist",
+  "name": "generics-data-structures",
   "version": "1.0.53",
-  "description": "A Linked List made with Typescript for practice",
+  "description": "A collection of Data Structures made with Typescript Generics",
   "main": "dist/index.js",
   "scripts": {
     "format": "prettier --write .",

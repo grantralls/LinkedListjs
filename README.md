@@ -1,22 +1,22 @@
-# Typescript Generics Linked List
+# Typescript Generics Data Structures
 
 _Author: Grant Ralls <dev@grantralls.net> https://www.grantralls.net_
 
-## Foreword
+# Foreword
 
 I created this package for the value of practice. I wanted my own implementation of a Linked List using Typescript with Generics to use in future home-projects. Consider this a work in progress, not ready for production.
 
 ---
 
-## Compatibility
+# Compatibility
 
 This is designed to be compatible with ES2017. This works best (at the time of writing) with Node 9, 10, and 11.
 
 ---
 
-## Example
+# Example
 
-### Node 10.8.x
+## Node 10.8.x
 
 ```
 const LinkedList = require("linkedlist").LinkedList;
@@ -27,7 +27,7 @@ newList.append(3);
 newList.contains(3); // true
 ```
 
-### Typescript
+## Typescript
 
 ```typescript
 import { LinkedList } from 'linkedlist';
@@ -41,7 +41,9 @@ newList.contains(4); // true
 
 ---
 
-## API (Using Typescript)
+# API (Using Typescript)
+
+## Linked List
 
 ### append(value: Type) returns void
 
@@ -186,7 +188,7 @@ newList.getTailValue(); // 3
 newList.getSize(); // 2
 ```
 
-### getValueAtIndex(indexOfNodeDataToRetrieve: number) returns type of List
+### getValueAtIndex(desiredIndex: number) returns type of List
 
 The getValueAtIndex function returns the data of the node at the index specified.
 _Note: The runtime for this function is O(n). This list is not doubly linked, therefore it needs to be iterated over to find the node to retrieve._
@@ -222,4 +224,88 @@ for (const value in listIterator) {
 }
 
 // Console: 1 2
+```
+
+## Queue
+
+### push(value: Type) returns void
+
+The push function adds `value` to the back of the queue.
+
+Usage:
+
+```typescript
+const newQueue = new Queue<number>();
+newList.push(1);
+```
+
+### pop(value: Type) returns T
+
+The pop function removes the node at the front of the queue and returns the data that node was holding.
+
+Usage:
+
+```typescript
+const newQueue = new Queue<number>();
+newList.push(1);
+
+console.log(newList.pop()); // 1
+```
+
+### front() returns T
+
+The front function returns the data at the front of the queue.
+
+Usage:
+
+```typescript
+const newQueue = new Queue<number>();
+newQueue.push(1);
+
+console.log(newQueue.front()); // 1
+```
+
+### back() returns T
+
+The back function returns the data at the back of the queue.
+
+Usage:
+
+```typescript
+const newQueue = new Queue<number>();
+newQueue.push(1);
+newQueue.push(2);
+
+console.log(newQueue.back()); // 2
+```
+
+### size() returns T
+
+The size function returns the number of nodes in the queue.
+
+Usage:
+
+```typescript
+const newQueue = new Queue<number>();
+newQueue.push(1);
+newQueue.push(2);
+newQueue.push(2);
+
+console.log(newQueue.size()); // 3
+```
+
+### empty() returns boolean
+
+The empty function returns true if the queue has no nodes associated with it.
+
+Usage:
+
+```typescript
+const newQueue = new Queue<number>();
+
+console.log(newQueue.empty()); // true
+
+newQueue.push(1);
+
+console.log(newQueue.empty()); // false
 ```
