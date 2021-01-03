@@ -1,6 +1,6 @@
 {
-  "name": "generics-data-structures",
-  "version": "1.0.53",
+  "name": "grant-linkedlist",
+  "version": "1.0.54",
   "description": "A collection of Data Structures made with Typescript Generics",
   "main": "dist/index.js",
   "scripts": {
