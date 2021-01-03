@@ -31,15 +31,35 @@ describe('Queue', () => {
 
             assert.strictEqual(newOrdered.size(), ordered.size() + 1);
         });
+
+        it('should add the value as the front and back if the queue starts out as empty', () => {
+            const newEmpty = emptyList.copy();
+
+            newEmpty.push(3);
+
+            assert.strictEqual(newEmpty.size(), 1);
+            assert.strictEqual(newEmpty.front(), 3);
+            assert.strictEqual(newEmpty.back(), 3);
+        });
     });
 
     describe('empty()', () => {
-        it('should return true when run on an empty list.', () => {
+        it('should return true when run on an empty queue', () => {
             assert.strictEqual(emptyList.empty(), true);
         });
 
-        it('should return false when run on a non-empty list.', () => {
+        it('should return false when run on a non-empty queue', () => {
             assert.strictEqual(ordered.empty(), false);
+        });
+    });
+
+    describe('size()', () => {
+        it('should return 0 when the queue is empty', () => {
+            assert.strictEqual(emptyList.size(), 0);
+        });
+
+        it('should return the accurate size of a queue', () => {
+            assert.strictEqual(ordered.size(), 3);
         });
     });
 });
