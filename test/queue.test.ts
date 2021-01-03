@@ -43,6 +43,19 @@ describe('Queue', () => {
         });
     });
 
+    describe('pop()', () => {
+        const copiedOrdered = ordered.copy();
+
+        it('should remove from the beginning of the queue', () => {
+            const oldFront = copiedOrdered.front();
+            assert.strictEqual(copiedOrdered.pop(), oldFront);
+        });
+
+        it('should reduce the size by 1', () => {
+            assert.strictEqual(copiedOrdered.size(), ordered.size() - 1);
+        });
+    });
+
     describe('empty()', () => {
         it('should return true when run on an empty queue', () => {
             assert.strictEqual(emptyList.empty(), true);
