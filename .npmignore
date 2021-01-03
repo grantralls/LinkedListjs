@@ -4,3 +4,5 @@ node_modules/
 docs/
 tsconfig.json
 .eslintrc.js
+CODE_OF_CONDUCT.md
+LICENSE
