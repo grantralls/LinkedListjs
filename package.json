@@ -1,6 +1,6 @@
 {
   "name": "grant-linkedlist",
-  "version": "1.0.54",
+  "version": "1.0.545",
   "description": "A collection of Data Structures made with Typescript Generics",
   "main": "dist/index.js",
   "scripts": {
