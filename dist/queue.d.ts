@@ -6,6 +6,5 @@ export declare class Queue<T> {
     front(): T;
     back(): T;
     size(): number;
-    traverse(): IterableIterator<T>;
     empty(): boolean;
 }

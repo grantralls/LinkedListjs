@@ -35,10 +35,6 @@ export class Queue<T> {
         return this.list.getSize();
     }
 
-    traverse(): IterableIterator<T> {
-        return this.list.traverse();
-    }
-
     empty(): boolean {
         return this.list.getSize() === 0;
     }

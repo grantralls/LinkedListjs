@@ -28,9 +28,6 @@ class Queue {
     size() {
         return this.list.getSize();
     }
-    traverse() {
-        return this.list.traverse();
-    }
     empty() {
         return this.list.getSize() === 0;
     }
