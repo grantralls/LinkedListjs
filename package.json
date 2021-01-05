@@ -1,6 +1,6 @@
 {
   "name": "grant-linkedlist",
-  "version": "1.0.545",
+  "version": "1.0.546",
   "description": "A collection of Data Structures made with Typescript Generics",
   "main": "dist/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "test": "mocha --require ts-node/register --extensions ts,tsx src 'test/**/*.{ts,tsx}'",
     "doc": "typedoc --out docs/ src/"
   },
-  "keywords": [],
+  "keywords": ["typescript", "generics", "data", "structure"],
   "author": "Grant Ralls <dev@grantralls.net> (https://grantralls.net)",
   "license": "MIT",
   "repository": {
