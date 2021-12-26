@@ -175,23 +175,17 @@ export class LinkedList<T> {
     }
 
     private validateIndex(indexToValidate: number): void {
-        const error = new Error();
 
         if (indexToValidate % 1 != 0) {
-            error.message = 'Received a decimal, expected a natural number.';
-            throw error;
+            throw Error('Received a decimal, expected a natural number.');
         }
 
         if (indexToValidate < 0) {
-            error.message =
-                'Received a negative number, expected a positive number.';
-            throw error;
+            throw Error('Received a negative number, expected a positive number.');
         }
 
         if (indexToValidate >= this.size) {
-            error.message =
-                'Received an index larger than the size of the list.';
-            throw error;
+            throw Error('Received an index larger than the size of the list.');
         }
     }
 
