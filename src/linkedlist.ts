@@ -117,8 +117,8 @@ export class LinkedList<T> {
         this.removeAtIndex(this.size - 1);
     }
 
-    removeAtIndex(desiredIndex: number): void {
-        this.validateIndex(desiredIndex);
+    removeAtIndex(indexToRemove: number): void {
+        this.validateIndex(indexToRemove);
 
         if (this.size == 1) {
             this.head = undefined;
@@ -127,7 +127,7 @@ export class LinkedList<T> {
             return;
         }
 
-        if (desiredIndex == 0) {
+        if (indexToRemove == 0) {
             const newNode = this.head.next;
             this.head = newNode;
             this.size--;
@@ -136,14 +136,14 @@ export class LinkedList<T> {
 
         let currNode = this.head;
 
-        for (let i = 0; i < desiredIndex - 1; i++) {
+        for (let i = 0; i < indexToRemove - 1; i++) {
             currNode = currNode.next;
         }
 
         const prevNode = currNode;
         prevNode.next = currNode.next.next;
 
-        if (desiredIndex == this.size - 1) {
+        if (indexToRemove == this.size - 1) {
             this.tail = prevNode;
         }
 
