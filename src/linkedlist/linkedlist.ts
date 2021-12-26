@@ -1,9 +1,9 @@
-import Node from './Node';
+import { Node } from '../node/node';
 
 export class LinkedList<T> {
-    protected head: Node<T> | undefined;
-    protected tail: Node<T> | undefined;
-    protected size = 0;
+    private head: Node<T> | undefined;
+    private tail: Node<T> | undefined;
+    private size = 0;
 
     /**
      * Usage:
@@ -117,8 +117,8 @@ export class LinkedList<T> {
         this.removeAtIndex(this.size - 1);
     }
 
-    removeAtIndex(desiredIndex: number): void {
-        this.validateIndex(desiredIndex);
+    removeAtIndex(indexToRemove: number): void {
+        this.validateIndex(indexToRemove);
 
         if (this.size == 1) {
             this.head = undefined;
@@ -127,7 +127,7 @@ export class LinkedList<T> {
             return;
         }
 
-        if (desiredIndex == 0) {
+        if (indexToRemove == 0) {
             const newNode = this.head.next;
             this.head = newNode;
             this.size--;
@@ -136,26 +136,26 @@ export class LinkedList<T> {
 
         let currNode = this.head;
 
-        for (let i = 0; i < desiredIndex - 1; i++) {
+        for (let i = 0; i < indexToRemove - 1; i++) {
             currNode = currNode.next;
         }
 
         const prevNode = currNode;
         prevNode.next = currNode.next.next;
 
-        if (desiredIndex == this.size - 1) {
+        if (indexToRemove == this.size - 1) {
             this.tail = prevNode;
         }
 
         this.size--;
     }
 
-    getValueAtIndex(desiredIndex: number): T {
-        this.validateIndex(desiredIndex);
+    getValueAtIndex(indexToRetrieve: number): T {
+        this.validateIndex(indexToRetrieve);
 
         let currNode = this.head;
 
-        for (let currIndex = 0; currIndex < desiredIndex; currIndex++) {
+        for (let currIndex = 0; currIndex < indexToRetrieve; currIndex++) {
             currNode = currNode.next;
         }
 
@@ -174,24 +174,22 @@ export class LinkedList<T> {
         }
     }
 
+    /**
+     * validateIndex takes a number and determines if that number is a valid index number to the current linkedlist.
+     */
     private validateIndex(indexToValidate: number): void {
-        const error = new Error();
-
         if (indexToValidate % 1 != 0) {
-            error.message = 'Received a decimal, expected a natural number.';
-            throw error;
+            throw Error('Received a decimal, expected a natural number.');
         }
 
         if (indexToValidate < 0) {
-            error.message =
-                'Received a negative number, expected a positive number.';
-            throw error;
+            throw Error(
+                'Received a negative number, expected a positive number.'
+            );
         }
 
         if (indexToValidate >= this.size) {
-            error.message =
-                'Received an index larger than the size of the list.';
-            throw error;
+            throw Error('Received an index larger than the size of the list.');
         }
     }
 

@@ -1,14 +1,14 @@
 module.exports = {
-    parser: '@typescript-eslint/parser', // Specifies the ESLint parser
+    parser: '@typescript-eslint/parser',
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
         'prettier',
-        'prettier/@typescript-eslint'
+        'prettier/@typescript-eslint',
     ],
     parserOptions: {
-        ecmaVersion: 2017, // Allows for the parsing of modern ECMAScript features
-        sourceType: 'module', // Allows for the use of imports
+        ecmaVersion: 2017,
+        sourceType: 'module',
     },
     ignorePatterns: [
         'webpack.config.js',
@@ -19,8 +19,6 @@ module.exports = {
         'test/',
     ],
     rules: {
-        // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
-        // e.g. '@typescript-eslint/explicit-function-return-type': 'off',
         'quotes': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
     },
