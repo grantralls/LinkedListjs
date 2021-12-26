@@ -1,4 +1,4 @@
-import { Node } from './node';
+import { Node } from '../node/node';
 
 export class LinkedList<T> {
     private head: Node<T> | undefined;
@@ -117,7 +117,7 @@ export class LinkedList<T> {
         this.removeAtIndex(this.size - 1);
     }
 
-    removeAtIndex(indexToRemove : number): void {
+    removeAtIndex(indexToRemove: number): void {
         this.validateIndex(indexToRemove);
 
         if (this.size == 1) {
@@ -178,13 +178,14 @@ export class LinkedList<T> {
      * validateIndex takes a number and determines if that number is a valid index number to the current linkedlist.
      */
     private validateIndex(indexToValidate: number): void {
-
         if (indexToValidate % 1 != 0) {
             throw Error('Received a decimal, expected a natural number.');
         }
 
         if (indexToValidate < 0) {
-            throw Error('Received a negative number, expected a positive number.');
+            throw Error(
+                'Received a negative number, expected a positive number.'
+            );
         }
 
         if (indexToValidate >= this.size) {

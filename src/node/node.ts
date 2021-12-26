@@ -9,4 +9,4 @@ export class Node<T> {
     print(): void {
         console.log(this.data);
     }
-};
+}

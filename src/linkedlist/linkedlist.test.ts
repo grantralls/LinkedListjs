@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { LinkedList } from '../src/index';
+import { LinkedList } from '../index';
 import { describe, it } from 'mocha';
 
 const ordered = new LinkedList<number>();

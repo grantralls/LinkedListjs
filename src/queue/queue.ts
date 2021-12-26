@@ -1,4 +1,4 @@
-import { LinkedList } from './index';
+import { LinkedList } from '../index';
 
 export class Queue<T> {
     private list = new LinkedList<T>();

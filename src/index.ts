@@ -1,4 +1,4 @@
-import { LinkedList } from './linkedlist';
-import { Queue } from './queue';
+import { LinkedList } from './linkedlist/linkedlist';
+import { Queue } from './queue/queue';
 
 export { LinkedList, Queue };
