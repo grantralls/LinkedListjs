@@ -10,7 +10,7 @@ I created this package for the value of practice. I wanted my own implementation
 
 # Compatibility
 
-This is designed to be compatible with ES2017. This works best (at the time of writing) with Node 9, 10, and 11.
+This is designed to be compatible with ES2017. This works best (at the time of writing) with Node 10+.
 
 ---
 
