@@ -10,7 +10,12 @@
     "test": "mocha --require ts-node/register --extensions ts,tsx src 'test/**/*.{ts,tsx}'",
     "doc": "typedoc --out docs/ src/"
   },
-  "keywords": ["typescript", "generics", "data", "structure"],
+  "keywords": [
+    "typescript",
+    "generics",
+    "data",
+    "structure"
+  ],
   "author": "Grant Ralls <dev@grantralls.net> (https://grantralls.net)",
   "license": "MIT",
   "repository": {
@@ -24,11 +29,10 @@
     "@typescript-eslint/parser": "^4.0.0",
     "eslint": "^7.16.0",
     "eslint-config-prettier": "^7.1.0",
-    "mocha": "^8.2.1",
+    "mocha": "^9.1.3",
     "prettier": "2.2.1",
     "ts-node": "^9.1.1",
-    "typedoc": "^0.19.2",
+    "typedoc": "^0.22.10",
     "typescript": "^4.0.5"
-  },
-  "dependencies": {}
+  }
 }
