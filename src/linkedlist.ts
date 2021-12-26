@@ -174,6 +174,9 @@ export class LinkedList<T> {
         }
     }
 
+    /**
+     * validateIndex takes a number and determines if that number is a valid index number to the current linkedlist.
+     */
     private validateIndex(indexToValidate: number): void {
 
         if (indexToValidate % 1 != 0) {
