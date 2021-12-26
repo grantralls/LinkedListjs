@@ -1,9 +1,9 @@
 import { Node } from './node';
 
 export class LinkedList<T> {
-    protected head: Node<T> | undefined;
-    protected tail: Node<T> | undefined;
-    protected size = 0;
+    private head: Node<T> | undefined;
+    private tail: Node<T> | undefined;
+    private size = 0;
 
     /**
      * Usage:
