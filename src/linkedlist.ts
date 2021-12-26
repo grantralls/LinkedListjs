@@ -1,4 +1,4 @@
-import Node from './node';
+import Node from './Node';
 
 export class LinkedList<T> {
     protected head: Node<T> | undefined;
