@@ -1,4 +1,4 @@
-class Node<T> {
+export class Node<T> {
     data: T;
     next: Node<T> | undefined;
 
@@ -9,6 +9,4 @@ class Node<T> {
     print(): void {
         console.log(this.data);
     }
-}
-
-export default Node;
+};
