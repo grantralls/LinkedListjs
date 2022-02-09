@@ -1,5 +1,5 @@
 {
-  "name": "grant-linkedlist",
+  "name": "@grantralls/linkedlist",
   "version": "2.1.0",
   "description": "A collection of Data Structures made with Typescript Generics",
   "main": "dist/index.js",
@@ -20,7 +20,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/grantralls/LinkedList.js.git"
+    "url": "https://github.com/grantralls/LinkedListjs.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
     "@types/mocha": "^8.2.0",
