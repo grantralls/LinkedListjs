@@ -7,7 +7,7 @@
     "format": "prettier --write .",
     "prebuild": "typedoc --out docs/ src/",
     "build": "tsc",
-    "test": "mocha --require ts-node/register --extensions ts,tsx src 'test/**/*.{ts,tsx}'",
+    "test": "mocha --require ts-node/register --extensions ts,tsx src 'src/**/*.test.{ts,tsx}'",
     "doc": "typedoc --out docs/ src/"
   },
   "keywords": [
