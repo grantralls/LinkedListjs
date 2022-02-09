@@ -1,13 +1,13 @@
 {
   "name": "grant-linkedlist",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A collection of Data Structures made with Typescript Generics",
   "main": "dist/index.js",
   "scripts": {
     "format": "prettier --write .",
     "prebuild": "typedoc --out docs/ src/",
     "build": "tsc",
-    "test": "mocha --require ts-node/register --extensions ts,tsx src 'test/**/*.{ts,tsx}'",
+    "test": "mocha --require ts-node/register --extensions ts,tsx src 'src/**/*.test.{ts,tsx}'",
     "doc": "typedoc --out docs/ src/"
   },
   "keywords": [
