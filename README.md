@@ -4,7 +4,7 @@ _Author: Grant Ralls <dev@grantralls.net> https://www.grantralls.net_
 
 # Foreword
 
-I created this package for the value of practice. I wanted my own implementation of a Linked List using Typescript with Generics to use in future home-projects. Consider this a work in progress, never intended to be used in production.
+I created this package for the value of practice. I wanted my own implementation of a Linked List using Typescript with Generics to use in future home-projects. Consider this a work in progress, never intended to be used in a production environment.
 
 ---
 
